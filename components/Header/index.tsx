@@ -57,7 +57,7 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="/images/logo/logo-removebg-preview.png"
+                  src="/images/logo/logo.png"
                   alt="logo"
                   width={140}
                   height={30}
@@ -150,11 +150,6 @@ const Header = () => {
                     ))}
                   </ul>
                 </nav>
-              </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <div>
-                  <ThemeToggler />
-                </div>
               </div>
             </div>
           </div>
