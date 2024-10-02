@@ -18,14 +18,14 @@ const Footer = () => {
                 </p>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
                   Ahornstrasse 10, 6300 Zug
-                  <Link
-                    href="mailto:info@gasschutzkorps.ch"
-                    className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark"
-                    target="blank"
-                  >
-                    <p>info@gasschutzkorps.ch</p>
-                  </Link>
                 </p>
+                <Link
+                  href="mailto:info@gasschutzkorps.ch"
+                  className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark"
+                  target="blank"
+                >
+                  info@gasschutzkorps.ch
+                </Link>
               </div>
             </div>
 

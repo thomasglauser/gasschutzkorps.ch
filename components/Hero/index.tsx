@@ -9,10 +9,10 @@ const Hero = () => {
           <Image
             src="/images/general/hero.JPG"
             alt="Background"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             quality={100}
-            priority={true}
+            priority
           />
         </div>
 
@@ -46,14 +46,14 @@ const Hero = () => {
                 href="/kontakt"
                 className="inline-block rounded-md bg-red-500 px-6 py-2 font-semibold text-white transition duration-300 hover:bg-red-600"
               >
-                <p>Kontakt</p>
+                Kontakt
               </Link>
               <Link
                 href="https://www.118prozent.ch/"
                 className="inline-block rounded-md bg-red-500 px-6 py-2 font-semibold text-white transition duration-300 hover:bg-red-600"
                 target="blank"
               >
-                <p>Ich will zur Feuerwehr!</p>
+                Ich will zur Feuerwehr!
               </Link>
             </div>
           </div>
