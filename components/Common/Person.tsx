@@ -15,16 +15,16 @@ const Person = ({
 
   return (
     <div
-      className="relative h-80 w-64 overflow-hidden rounded-md shadow-lg transition-shadow duration-300 hover:shadow-2xl"
+      className="relative flex  w-[200px] justify-center rounded-md bg-gray-dark shadow-lg transition-shadow duration-300 hover:shadow-2xl "
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <Image
         src={imagePath}
         alt={`${firstname} ${lastname}`}
-        layout="intrinsic" // Use intrinsic layout to maintain original aspect ratio
-        width={256} // Provide exact dimensions (w-64 is 256px)
-        height={320} // Maintain a fixed height for the image
+        width={150}
+        height={225}
+        style={{ margin: "15px" }}
         className="rounded-md"
       />
       <div
@@ -33,16 +33,16 @@ const Person = ({
           opacity: hovered ? 1 : 0,
           transition: "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out",
         }}
-        className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 p-4 text-white"
+        className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 p-4 text-center text-white"
       >
         <h2 className="text-2xl font-bold">
-          {firstname} {lastname}
+          {lastname} {firstname}
         </h2>
         <hr className="my-2 w-full border-gray-400" />
         <p className="text-lg">{primaryFunction}</p>
-        <p className="mt-1 text-sm">{grade}</p>
-        <p className="mt-2 text-xs">{secondaryFunctions}</p>
-        <p className="mt-4 text-xs">{joined}</p>
+        <p className="mt-1 text-sm">Funktion FFZ: {grade}</p>
+        <p className="mt-2 text-xs">Zusatzfunktionen: {secondaryFunctions}</p>
+        <p className="mt-4 text-xs">Im GSK seit {joined}</p>
       </div>
     </div>
   );
