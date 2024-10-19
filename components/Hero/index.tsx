@@ -1,17 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import heroImage from "/public/images/general/hero.webp";
+
 const Hero = () => {
   return (
     <>
       <div className="relative h-screen w-full">
         <div className="absolute inset-0">
           <Image
-            src="/images/general/hero.JPG"
+            src={heroImage}
             alt="Background"
-            fill
+            fill={true}
             style={{ objectFit: "cover" }}
-            quality={100}
+            placeholder="blur"
             priority
           />
         </div>

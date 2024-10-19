@@ -3,6 +3,13 @@ import Image from "next/image";
 
 import Person from "@/components/Common/Person";
 
+import vorstandImage from "/public/images/groups/vorstand.webp";
+import mlimacherImage from "/public/images/persons/michael-limacher.webp";
+import mwälchlinImage from "/public/images/persons/manfred-wälchlin.webp";
+import mskupchImage from "/public/images/persons/markus-skupch.webp";
+import phäuselmannImage from "/public/images/persons/patrick-häuselmann.webp";
+import mschüleImage from "/public/images/persons/martina-schüle.webp";
+
 export const metadata: Metadata = {
   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
   description: "This is Blog Details Page for Startup Nextjs Template",
@@ -21,7 +28,7 @@ const BlogDetailsPage = () => {
                   Der Vorstand
                 </h2>
                 <Image
-                  src="/images/groups/vorstand.webp"
+                  src={vorstandImage}
                   alt="Vorstand"
                   width={1000}
                   height={500}
@@ -38,7 +45,7 @@ const BlogDetailsPage = () => {
                       secondaryFunctions="Atemschutz, Seedienst"
                       grade="Soldat"
                       joined="2009"
-                      imagePath="/images/persons/michael-limacher.webp"
+                      imagePath={mlimacherImage}
                     />
                   </div>
 
@@ -49,7 +56,7 @@ const BlogDetailsPage = () => {
                     secondaryFunctions=""
                     grade="Soldat"
                     joined="2015"
-                    imagePath="/images/persons/manfred-wälchlin.webp"
+                    imagePath={mwälchlinImage}
                   />
 
                   <Person
@@ -59,7 +66,7 @@ const BlogDetailsPage = () => {
                     secondaryFunctions="Atemschutz, Chemiewehr"
                     grade="Soldat"
                     joined="2015"
-                    imagePath="/images/persons/skupch-markus.webp"
+                    imagePath={mskupchImage}
                   />
 
                   <Person
@@ -69,7 +76,7 @@ const BlogDetailsPage = () => {
                     secondaryFunctions=""
                     grade="Offizier"
                     joined="2006"
-                    imagePath="/images/persons/patrick-häuselmann.webp"
+                    imagePath={phäuselmannImage}
                   />
 
                   <Person
@@ -79,7 +86,7 @@ const BlogDetailsPage = () => {
                     secondaryFunctions="Atemschutz, Chemiewehr, Kader FFZ, FUST, Techzug, Jugendfeuerwehr-Kader"
                     grade="Wachtmeister"
                     joined="2019"
-                    imagePath="/images/persons/martina-schüle.webp"
+                    imagePath={mschüleImage}
                   />
                 </div>
               </div>
