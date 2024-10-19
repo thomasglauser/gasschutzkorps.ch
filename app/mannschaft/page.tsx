@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 import Person from "@/components/Common/Person";
+import { personData } from "./personData";
 
 export const metadata: Metadata = {
   title: "Gasschutzkorps.ch | Mannschaft",
@@ -28,43 +29,18 @@ const BlogDetailsPage = () => {
                   className="rounded-md"
                 />
 
-                <div className="mt-20 grid grid-cols-3 gap-4">
-                  <Person
-                    firstname="Manfred"
-                    lastname="Wälchli"
-                    primaryFunction="Kassier"
-                    secondaryFunctions=""
-                    grade="Soldat"
-                    joined="2015"
-                    imagePath="/images/persons/manfred-wälchlin.webp"
-                  />
-                  <Person
-                    firstname="Markus"
-                    lastname="Skupch"
-                    primaryFunction="Beisitzer"
-                    secondaryFunctions="Atemschutz, Chemiewehr"
-                    grade="Soldat"
-                    joined="2015"
-                    imagePath="/images/persons/markus-skupch.webp"
-                  />
-                  <Person
-                    firstname="Patrick"
-                    lastname="Häuselmann"
-                    primaryFunction="Beisitzer"
-                    secondaryFunctions=""
-                    grade="Offizier"
-                    joined="2006"
-                    imagePath="/images/persons/patrick-häuselmann.webp"
-                  />
-                  <Person
-                    firstname="Martina"
-                    lastname="Schüle"
-                    primaryFunction="Aktuarin"
-                    secondaryFunctions="Atemschutz, Chemiewehr, Kader FFZ, FUST, Techzug, Jugendfeuerwehr-Kader"
-                    grade="Wachtmeister"
-                    joined="2019"
-                    imagePath="/images/persons/martina-schüle.webp"
-                  />
+                <div className="mt-20 grid grid-cols-3 justify-items-center gap-8">
+                  {personData.map((person, index) => (
+                    <Person
+                      key={index}
+                      firstname={person.firstname}
+                      lastname={person.lastname}
+                      primaryFunction={person.primaryFunction}
+                      secondaryFunctions={person.secondaryFunctions}
+                      joined={person.joined}
+                      imagePath={person.imagePath}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,16 +1,28 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+interface PersonProps {
+  firstname: string;
+  lastname: string;
+  primaryFunction: string;
+  secondaryFunctions: string;
+  functionFFZ?: string;
+  showFunctionFFZ?: boolean;
+  joined: string;
+  imagePath: any;
+}
 
 const Person = ({
   firstname,
   lastname,
   primaryFunction,
   secondaryFunctions,
-  grade,
+  functionFFZ,
+  showFunctionFFZ,
   joined,
   imagePath,
-}) => {
+}: PersonProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -36,11 +48,13 @@ const Person = ({
         className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 p-4 text-center text-white"
       >
         <h2 className="text-2xl font-bold">
-          {lastname} {firstname}
+          {firstname} {lastname}
         </h2>
         <hr className="my-2 w-full border-gray-400" />
         <p className="text-lg">{primaryFunction}</p>
-        <p className="mt-1 text-sm">Funktion FFZ: {grade}</p>
+        {showFunctionFFZ && (
+          <p className="mt-1 text-sm">Funktion FFZ: {functionFFZ}</p>
+        )}
         <p className="mt-2 text-xs">Zusatzfunktionen: {secondaryFunctions}</p>
         <p className="mt-4 text-xs">Im GSK seit {joined}</p>
       </div>

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 import vorstandImage from "/public/images/groups/vorstand.webp";
 import mlimacherImage from "/public/images/persons/michael-limacher.webp";
-import mwälchlinImage from "/public/images/persons/manfred-wälchlin.webp";
+import mwälchlinImage from "/public/images/persons/manfred-waelchlin.webp";
 import mskupchImage from "/public/images/persons/markus-skupch.webp";
-import phäuselmannImage from "/public/images/persons/patrick-häuselmann.webp";
+import phäuselmannImage from "/public/images/persons/patrick-haeuselmann.webp";
 import mschüleImage from "/public/images/persons/martina-schüle.webp";
 
 const BlogDetailsPage = () => {
@@ -34,26 +34,27 @@ const BlogDetailsPage = () => {
                   style={{ width: "100%" }}
                   className="rounded-md"
                 />
+                <div className="col-span-4 mt-20 flex justify-center">
+                  <Person
+                    firstname="Michael"
+                    lastname="Limacher"
+                    primaryFunction="Präsident"
+                    secondaryFunctions="Atemschutz, Seedienst"
+                    functionFFZ="Soldat"
+                    showFunctionFFZ={true}
+                    joined="2009"
+                    imagePath={mlimacherImage}
+                  />
+                </div>
 
-                <div className="mt-20 grid grid-cols-3 gap-4">
-                  <div className="col-span-4 flex justify-center">
-                    <Person
-                      firstname="Michael"
-                      lastname="Limacher"
-                      primaryFunction="Präsident"
-                      secondaryFunctions="Atemschutz, Seedienst"
-                      grade="Soldat"
-                      joined="2009"
-                      imagePath={mlimacherImage}
-                    />
-                  </div>
-
+                <div className="mt-4 grid grid-cols-4 justify-items-center gap-4">
                   <Person
                     firstname="Manfred"
                     lastname="Wälchli"
                     primaryFunction="Kassier"
                     secondaryFunctions=""
-                    grade="Soldat"
+                    functionFFZ="Soldat"
+                    showFunctionFFZ={true}
                     joined="2015"
                     imagePath={mwälchlinImage}
                   />
@@ -63,7 +64,8 @@ const BlogDetailsPage = () => {
                     lastname="Skupch"
                     primaryFunction="Beisitzer"
                     secondaryFunctions="Atemschutz, Chemiewehr"
-                    grade="Soldat"
+                    functionFFZ="Soldat"
+                    showFunctionFFZ={true}
                     joined="2015"
                     imagePath={mskupchImage}
                   />
@@ -73,7 +75,8 @@ const BlogDetailsPage = () => {
                     lastname="Häuselmann"
                     primaryFunction="Beisitzer"
                     secondaryFunctions=""
-                    grade="Offizier"
+                    functionFFZ="Offizier"
+                    showFunctionFFZ={true}
                     joined="2006"
                     imagePath={phäuselmannImage}
                   />
@@ -83,7 +86,8 @@ const BlogDetailsPage = () => {
                     lastname="Schüle"
                     primaryFunction="Aktuarin"
                     secondaryFunctions="Atemschutz, Chemiewehr, Kader FFZ, FUST, Techzug, Jugendfeuerwehr-Kader"
-                    grade="Wachtmeister"
+                    functionFFZ="Wachtmeister"
+                    showFunctionFFZ={true}
                     joined="2019"
                     imagePath={mschüleImage}
                   />
