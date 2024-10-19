@@ -45,7 +45,7 @@ const BlogDetailsPage = () => {
                     secondaryFunctions="Atemschutz, Chemiewehr"
                     grade="Soldat"
                     joined="2015"
-                    imagePath="/images/persons/skupch-markus.webp"
+                    imagePath="/images/persons/markus-skupch.webp"
                   />
                   <Person
                     firstname="Patrick"
