@@ -26,7 +26,7 @@ const BlogDetailsPage = () => {
                     zusammenzufassen.
                   </p>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Am 28. Juni 1951 fand in dem Restaurant "Taube" die
+                    Am 28. Juni 1951 fand in dem Restaurant Taube die
                     Gründungsversammlung statt. Es wurde Heinrich Schwerzmann
                     als Chef gewählt. In den folgenden Monaten wurde eifrig
                     Ausbildung betrieben, und man organisierte den ersten
@@ -57,7 +57,7 @@ const BlogDetailsPage = () => {
                     grossen Fest. Aber auch dienstlich wurde ein Markstein
                     gesetzt: Im Jubiläumsjahr konnte ein Fahrzeug in Betrieb
                     genommen werden, welches besonders auf die Belange des
-                    Atemschutz eingerichtet war. Es wurde "Flitzer" getauft.
+                    Atemschutz eingerichtet war. Es wurde Flitzer getauft.
                     Heute, fast 50 Jahre nach der Gründung des Gasschutzkorps,
                     ist der Atemschutz aus einer modernen Feuerwehr nicht mehr
                     wegzudenken.
