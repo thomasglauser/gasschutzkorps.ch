@@ -1,7 +1,12 @@
-import { Metadata } from "next";
 import Image from "next/image";
+import { Metadata } from "next";
 
 import Person from "@/components/Common/Person";
+
+export const metadata: Metadata = {
+  title: "Gasschutzkorps.ch | Vorstand",
+  description: "Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.",
+};
 
 import vorstandImage from "/public/images/groups/vorstand.webp";
 import mlimacherImage from "/public/images/persons/michael-limacher.webp";
@@ -9,12 +14,6 @@ import mwälchlinImage from "/public/images/persons/manfred-wälchlin.webp";
 import mskupchImage from "/public/images/persons/markus-skupch.webp";
 import phäuselmannImage from "/public/images/persons/patrick-häuselmann.webp";
 import mschüleImage from "/public/images/persons/martina-schüle.webp";
-
-export const metadata: Metadata = {
-  title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Details Page for Startup Nextjs Template",
-  // other metadata
-};
 
 const BlogDetailsPage = () => {
   return (

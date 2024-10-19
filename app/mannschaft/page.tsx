@@ -1,12 +1,11 @@
-import { Metadata } from "next";
 import Image from "next/image";
+import { Metadata } from "next";
 
 import Person from "@/components/Common/Person";
 
 export const metadata: Metadata = {
-  title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Details Page for Startup Nextjs Template",
-  // other metadata
+  title: "Gasschutzkorps.ch | Mannschaft",
+  description: "Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.",
 };
 
 const BlogDetailsPage = () => {

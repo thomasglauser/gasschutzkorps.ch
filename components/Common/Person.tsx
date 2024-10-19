@@ -25,7 +25,6 @@ const Person = ({
         width={150}
         height={225}
         style={{ margin: "15px" }}
-        placeholder="blur"
         className="rounded-md"
       />
       <div
