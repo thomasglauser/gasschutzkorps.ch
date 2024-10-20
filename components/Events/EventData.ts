@@ -15,6 +15,11 @@ export const EventData = [
       "Im Sommer findet der Sommerplausch statt, an dem wir einen gemütlichen Tag mit der ganzen Familie verbringen. Dabei gibt es immer leckeres Essen vom Grill.",
   },
   {
+    title: "Sommer Raclette",
+    content:
+      "Beim jährlichen Sommer Raclette lassen wir den Grill kalt und den Käse heisslaufen!",
+  },
+  {
     title: "Partneressen",
     content:
       "Beim Partneressen gibt es ein Abendessen in der Umgebung Zug. Dabei sind auch die Partner/innen herzlich eingeladen.",
