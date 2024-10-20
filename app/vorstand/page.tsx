@@ -15,7 +15,7 @@ import mskupchImage from "/public/images/persons/markus-skupch.webp";
 import phäuselmannImage from "/public/images/persons/patrick-haeuselmann.webp";
 import mschüleImage from "/public/images/persons/martina-schüle.webp";
 
-const VorstandPage = () => {
+const ExecutivePage = () => {
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
@@ -101,4 +101,4 @@ const VorstandPage = () => {
   );
 };
 
-export default VorstandPage;
+export default ExecutivePage;

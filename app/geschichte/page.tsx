@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.",
 };
 
-const BlogDetailsPage = () => {
+const HistoryPage = () => {
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
@@ -72,4 +72,4 @@ const BlogDetailsPage = () => {
   );
 };
 
-export default BlogDetailsPage;
+export default HistoryPage;
