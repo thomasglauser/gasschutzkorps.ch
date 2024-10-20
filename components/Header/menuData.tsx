@@ -9,36 +9,42 @@ const menuData: Menu[] = [
   },
   {
     id: 2,
+    title: "Vorstand",
+    path: "/vorstand",
+    newTab: false,
+  },
+  {
+    id: 3,
+    title: "Mannschaft",
+    path: "/mannschaft",
+    newTab: false,
+  },
+
+  {
+    id: 4,
     title: "Verein",
     newTab: false,
     submenu: [
       {
-        id: 21,
-        title: "Geschichte",
-        path: "/geschichte",
-        newTab: false,
-      },
-      {
-        id: 22,
-        title: "Vorstand",
-        path: "/vorstand",
-        newTab: false,
-      },
-      ,
-      {
-        id: 23,
-        title: "Mannschaft",
-        path: "/mannschaft",
-        newTab: false,
-      },
-      {
-        id: 24,
+        id: 41,
         title: "Anlässe",
         path: "/events",
         newTab: false,
       },
       {
-        id: 25,
+        id: 42,
+        title: "Geschichte",
+        path: "/geschichte",
+        newTab: false,
+      },
+      {
+        id: 43,
+        title: "Links",
+        path: "/links",
+        newTab: false,
+      },
+      {
+        id: 44,
         title: "Downloads",
         path: "/downloads",
         newTab: false,
@@ -46,19 +52,14 @@ const menuData: Menu[] = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Veteranen",
     path: "/veteranen",
     newTab: false,
   },
+
   {
-    id: 4,
-    title: "Links",
-    path: "/links",
-    newTab: false,
-  },
-  {
-    id: 5,
+    id: 6,
     title: "Kontakt",
     path: "/kontakt",
     newTab: false,
