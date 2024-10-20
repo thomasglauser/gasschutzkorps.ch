@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import menuData from "./menuData";
 
+import logoImage from "/public/images/general/logo.webp";
+
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -56,8 +58,8 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="/images/logo/logo.png"
-                  alt="logo"
+                  src={logoImage}
+                  alt="Gasschutzkorps"
                   width={140}
                   height={30}
                   className="w-full"

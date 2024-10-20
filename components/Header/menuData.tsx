@@ -65,4 +65,5 @@ const menuData: Menu[] = [
     newTab: false,
   },
 ];
+
 export default menuData;
