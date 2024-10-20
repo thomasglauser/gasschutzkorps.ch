@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 interface PersonProps {
   firstname: string;

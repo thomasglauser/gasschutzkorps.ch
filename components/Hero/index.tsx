@@ -28,8 +28,7 @@ const Hero = () => {
           <div className="mx-auto max-w-4xl text-lg text-white">
             <p>
               Unser Verein setzt sich aus aktiven und ehemaligen Feuerwehrleuten
-              oder Personen welche mit der Feuerwehr zu tun haben/hatten
-              zusammen.
+              und Personen welche mit der Feuerwehr zu tun haben zusammen.
             </p>
             <br></br>
             <p>
