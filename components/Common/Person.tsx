@@ -8,7 +8,6 @@ interface PersonProps {
   primaryFunction: string;
   secondaryFunctions: string;
   functionFFZ?: string;
-  showFunctionFFZ?: boolean;
   joined: string;
   imagePath: any;
 }
@@ -19,7 +18,6 @@ const Person = ({
   primaryFunction,
   secondaryFunctions,
   functionFFZ,
-  showFunctionFFZ,
   joined,
   imagePath,
 }: PersonProps) => {
@@ -34,8 +32,8 @@ const Person = ({
       <Image
         src={imagePath}
         alt={`${firstname} ${lastname}`}
-        width={150}
-        height={225}
+        width={180}
+        height={255}
         style={{ margin: "15px" }}
         className="rounded-md"
       />
@@ -52,9 +50,7 @@ const Person = ({
         </h2>
         <hr className="my-2 w-full border-gray-400" />
         <p className="text-lg">{primaryFunction}</p>
-        {showFunctionFFZ && (
-          <p className="mt-1 text-sm">Funktion FFZ: {functionFFZ}</p>
-        )}
+        <p className="mt-1 text-sm">Funktion FFZ: {functionFFZ}</p>
         <p className="mt-2 text-xs">Zusatzfunktionen: {secondaryFunctions}</p>
         <p className="mt-4 text-xs">Im GSK seit {joined}</p>
       </div>

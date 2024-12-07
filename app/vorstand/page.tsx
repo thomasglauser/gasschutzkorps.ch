@@ -41,7 +41,6 @@ const ExecutivePage = () => {
                     primaryFunction="Präsident"
                     secondaryFunctions="Atemschutz, Seedienst"
                     functionFFZ="Soldat"
-                    showFunctionFFZ={true}
                     joined="2009"
                     imagePath={mlimacherImage}
                   />
@@ -54,7 +53,6 @@ const ExecutivePage = () => {
                     primaryFunction="Kassier"
                     secondaryFunctions=""
                     functionFFZ="Soldat"
-                    showFunctionFFZ={true}
                     joined="2015"
                     imagePath={mwälchlinImage}
                   />
@@ -65,7 +63,6 @@ const ExecutivePage = () => {
                     primaryFunction="Beisitzer"
                     secondaryFunctions="Atemschutz, Chemiewehr"
                     functionFFZ="Soldat"
-                    showFunctionFFZ={true}
                     joined="2015"
                     imagePath={mskupchImage}
                   />
@@ -76,7 +73,6 @@ const ExecutivePage = () => {
                     primaryFunction="Beisitzer"
                     secondaryFunctions=""
                     functionFFZ="Offizier"
-                    showFunctionFFZ={true}
                     joined="2006"
                     imagePath={phäuselmannImage}
                   />
@@ -87,7 +83,6 @@ const ExecutivePage = () => {
                     primaryFunction="Aktuarin"
                     secondaryFunctions="Atemschutz, Chemiewehr, Kader FFZ, FUST, Techzug, Jugendfeuerwehr-Kader"
                     functionFFZ="Wachtmeister"
-                    showFunctionFFZ={true}
                     joined="2019"
                     imagePath={mschüleImage}
                   />

@@ -15,36 +15,29 @@ const menuData: Menu[] = [
   },
   {
     id: 3,
-    title: "Mannschaft",
-    path: "/mannschaft",
-    newTab: false,
-  },
-
-  {
-    id: 4,
     title: "Verein",
     newTab: false,
     submenu: [
       {
-        id: 41,
+        id: 31,
         title: "Anlässe",
         path: "/events",
         newTab: false,
       },
       {
-        id: 42,
+        id: 32,
         title: "Geschichte",
         path: "/geschichte",
         newTab: false,
       },
       {
-        id: 43,
+        id: 33,
         title: "Links",
         path: "/links",
         newTab: false,
       },
       {
-        id: 44,
+        id: 34,
         title: "Downloads",
         path: "/downloads",
         newTab: false,
@@ -52,14 +45,14 @@ const menuData: Menu[] = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     title: "Veteranen",
     path: "/veteranen",
     newTab: false,
   },
 
   {
-    id: 6,
+    id: 5,
     title: "Kontakt",
     path: "/kontakt",
     newTab: false,
