@@ -1,18 +1,18 @@
-import Contact from "@/components/Contact";
+import Contact from '@/components/Contact';
 
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Gasschutzkorps.ch | Kontakt",
-  description: "Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.",
+    title: 'Gasschutzkorps.ch | Kontakt',
+    description: 'Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.',
 };
 
 const ContactPage = () => {
-  return (
-    <>
-      <Contact />
-    </>
-  );
+    return (
+        <>
+            <Contact />
+        </>
+    );
 };
 
 export default ContactPage;

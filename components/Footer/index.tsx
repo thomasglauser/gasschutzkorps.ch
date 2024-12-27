@@ -17,7 +17,7 @@ const Footer = () => {
                                     Gasschutzkorps der Freiwilligen Feuerwehr
                                     der Stadt Zug
                                 </p>
-                                <p className="mb-9 text-base leading-relaxedtext-body-color-dark">
+                                <p className="mb-9 text-base leading-relaxed text-body-color-dark">
                                     Ahornstrasse 10, 6300 Zug
                                 </p>
                                 <Link
@@ -39,7 +39,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="https://www.instagram.com/gasschutzkorps_ffz"
-                                            className="mb-4 inline-block text-base"
+                                            className="mb-4 inline-block text-base text-body-color"
                                             target="blank"
                                         >
                                             <FaInstagram size={30} />
@@ -48,7 +48,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="https://www.facebook.com/Gasschutzkorps"
-                                            className="mb-4 inline-block text-base"
+                                            className="mb-4 inline-block text-base text-body-color"
                                             target="blank"
                                         >
                                             <FaFacebook size={30} />
@@ -57,7 +57,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="https://www.youtube.com/watch?v=zIMCXZ2CQTw"
-                                            className="mb-4 inline-block text-base"
+                                            className="mb-4 inline-block text-base text-body-color"
                                             target="blank"
                                         >
                                             <FaYoutube size={30} />
