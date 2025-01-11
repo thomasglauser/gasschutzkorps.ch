@@ -30,18 +30,6 @@ const menuData: Menu[] = [
                 path: '/geschichte',
                 newTab: false,
             },
-            {
-                id: 33,
-                title: 'Links',
-                path: '/links',
-                newTab: false,
-            },
-            {
-                id: 34,
-                title: 'Downloads',
-                path: '/downloads',
-                newTab: false,
-            },
         ],
     },
     {

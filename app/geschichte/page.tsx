@@ -48,8 +48,8 @@ const HistoryPage = () => {
                                         verhalf dem Korps nun auch zu
                                         dienstlicher Blüte, zuerst als Chef,
                                         dann als Vize-Kommandant und später als
-                                        Kommandant Freiwilligen Feuerwehr der
-                                        Stadt Zug. 1960 wurden die ersten
+                                        Kommandant der Freiwilligen Feuerwehr
+                                        der Stadt Zug. 1960 wurden die ersten
                                         Pressluftatemgeräte eingeführt, und das
                                         Kreislaufgeräte-Korps rettete in der
                                         Kläranlage Zug einem Arbeiter das Leben.
@@ -71,11 +71,12 @@ const HistoryPage = () => {
                                         gesetzt: Im Jubiläumsjahr konnte ein
                                         Fahrzeug in Betrieb genommen werden,
                                         welches besonders auf die Belange des
-                                        Atemschutz eingerichtet war. Es wurde
-                                        Flitzer getauft. Heute, fast 50 Jahre
-                                        nach der Gründung des Gasschutzkorps,
-                                        ist der Atemschutz aus einer modernen
-                                        Feuerwehr nicht mehr wegzudenken.
+                                        Atemschutzes eingerichtet war. Das
+                                        Fahrzeug wurde Flitzer getauft. Heute,
+                                        fast 50 Jahre nach der Gründung des
+                                        Gasschutzkorps, ist der Atemschutz aus
+                                        einer modernen Feuerwehr nicht mehr
+                                        wegzudenken.
                                     </p>
                                 </div>
                             </div>

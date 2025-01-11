@@ -19,15 +19,15 @@ const VeteransPage = () => {
                                 <div>
                                     <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Ziemlich genau 25 Jahre nach der
-                                        Gründung des Gasschutz Korps, am 30.
+                                        Gründung des Gasschutzkorps, am 30.
                                         August 1976 wurde die Organisation
-                                        Gasschutz - Veteranen der FFZ gegründet
+                                        Gasschutz - Veteranen der FFZ gegründet,
                                         mit dem Ziel, die Kameradschaft zwischen
                                         Ehemaligen und Aktiven zu pflegen sowie
                                         einen jährlichen Veteranenausflug
                                         durchzuführen. Diese beiden Kernideen
                                         sind auch heute noch fester Bestandteil
-                                        bei der Ausgestaltung des Vereinsleben.
+                                        bei der Ausgestaltung des Vereinslebens.
                                     </p>
                                     <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Die GS Veteranen rekrutieren sich aus
@@ -69,7 +69,7 @@ const VeteransPage = () => {
 
                                     <ul className="mb-8 max-w-md list-inside list-disc space-y-1 text-base font-medium leading-relaxed text-body-color">
                                         <li>
-                                            Generalsversammlung Gasschutzkorps
+                                            Generalversammlung Gasschutzkorps
                                         </li>
                                         <li>Sommerplausch</li>
                                         <li>GS Partneressen</li>

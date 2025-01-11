@@ -28,20 +28,19 @@ const Hero = () => {
                     <div className="mx-auto max-w-4xl text-lg text-white">
                         <p>
                             Unser Verein setzt sich aus aktiven und ehemaligen
-                            Feuerwehrleuten und Personen welche mit der
-                            Feuerwehr zu tun haben zusammen.
+                            Feuerwehrleuten zusammen.
                         </p>
                         <br></br>
                         <p>
                             Wir sind eine aktive und gesellige Gemeinschaft.
                             Unser Vereinsjahr ist gespickt mit tollen Ausflügen,
-                            gemeinsamen Aktivitäten und Anlässe. Wenn wir auf
-                            unserer Vereinsreise unterwegs sind erleben wir
+                            gemeinsamen Aktivitäten und Anlässen. Wenn wir auf
+                            unserer Vereinsreise unterwegs sind, erleben wir
                             Kultur, Kulinarik und unsere Kameradschaft.
                         </p>
                         <br></br>
                         <p>
-                            Du hast Lust unseren Verein kennenzulernen? Dann
+                            Du hast Lust, unseren Verein kennenzulernen? Dann
                             melde dich und schau beim nächsten Anlass vorbei!
                         </p>
                         <div className=" space-x-4 p-4">
