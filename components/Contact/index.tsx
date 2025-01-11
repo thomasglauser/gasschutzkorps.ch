@@ -68,14 +68,14 @@ const Contact = () => {
                                                 htmlFor="name"
                                                 className="mb-3 block text-sm font-medium text-white"
                                             >
-                                                Name
+                                                Dein vollständiger Name
                                             </label>
                                             <input
                                                 type="text"
                                                 name="name"
                                                 required
-                                                placeholder="Wie lautet dein Vor/Nachname?"
-                                                className="w-full rounded-sm border border-stroke  px-6 py-3 text-base outline-none border-transparent bg-[#2C303B] text-body-color-dark shadow-two focus:border-primary focus:shadow-none"
+                                                placeholder="Gib bitte deinen Vor- und Nachnamen ein"
+                                                className="w-full rounded-sm border border-stroke px-6 py-3 text-base outline-none border-transparent bg-[#2C303B] text-body-color-dark shadow-two focus:border-primary focus:shadow-none"
                                             />
                                         </div>
                                     </div>
@@ -85,13 +85,13 @@ const Contact = () => {
                                                 htmlFor="email"
                                                 className="mb-3 block text-sm font-medium text-white"
                                             >
-                                                E-Mail
+                                                Deine E-Mail-Adresse
                                             </label>
                                             <input
                                                 type="email"
                                                 name="email"
                                                 required
-                                                placeholder="Wie lautet deine E-Mail?"
+                                                placeholder="Gib bitte deine E-Mail-Adresse ein"
                                                 className="w-full rounded-sm border border-stroke px-6 py-3 text-base outline-none border-transparent bg-[#2C303B] text-body-color-dark shadow-two focus:border-primary focus:shadow-none"
                                             />
                                         </div>
@@ -102,13 +102,13 @@ const Contact = () => {
                                                 htmlFor="message"
                                                 className="mb-3 block text-sm font-medium text-white"
                                             >
-                                                Nachricht
+                                                Deine Nachricht
                                             </label>
                                             <textarea
                                                 name="message"
                                                 required
                                                 rows={5}
-                                                placeholder="Wie lautet deine Nachricht?"
+                                                placeholder="Schreibe hier deine Nachricht"
                                                 className="w-full resize-none rounded-sm border border-stroke px-6 py-3 text-base outline-none border-transparent bg-[#2C303B] text-body-color-dark shadow-two focus:border-primary focus:shadow-none"
                                             ></textarea>
                                         </div>
@@ -128,12 +128,12 @@ const Contact = () => {
                                             disabled={status === 'loading'}
                                         >
                                             {status === 'loading'
-                                                ? 'Senden...'
+                                                ? 'Wird gesendet...'
                                                 : status === 'success'
-                                                ? 'Gesendet!'
+                                                ? 'Erfolgreich gesendet!'
                                                 : status === 'error'
-                                                ? 'Fehler!'
-                                                : 'Senden'}
+                                                ? 'Fehler beim Senden!'
+                                                : 'Nachricht senden'}
                                         </button>
                                     </div>
                                 </div>
