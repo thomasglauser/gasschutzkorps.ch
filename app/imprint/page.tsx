@@ -47,7 +47,7 @@ const ImprintPage = () => {
                                         Thomas Glauser, Beisitzer
                                     </p>
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
-                                        Haftungsausschluss
+                                        Haftungsausschluss:
                                     </h3>
                                     <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Der Verein übernimmt keine Gewähr für
