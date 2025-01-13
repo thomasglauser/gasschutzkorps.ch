@@ -154,26 +154,28 @@ const Header = () => {
                                                                     : 'hidden'
                                                             }`}
                                                         >
-                                                            {menuItem.submenu.map(
-                                                                (
-                                                                    submenuItem,
-                                                                    index
-                                                                ) => (
-                                                                    <Link
-                                                                        href={
-                                                                            submenuItem.path
-                                                                        }
-                                                                        key={
-                                                                            index
-                                                                        }
-                                                                        className="block rounded py-2.5 text-sm text-white/70 hover:text-white lg:px-3"
-                                                                    >
-                                                                        {
-                                                                            submenuItem.title
-                                                                        }
-                                                                    </Link>
-                                                                )
-                                                            )}
+                                                            {menuItem.submenu &&
+                                                                menuItem.submenu.map(
+                                                                    (
+                                                                        submenuItem,
+                                                                        index
+                                                                    ) =>
+                                                                        submenuItem.path && (
+                                                                            <Link
+                                                                                href={
+                                                                                    submenuItem.path
+                                                                                }
+                                                                                key={
+                                                                                    index
+                                                                                }
+                                                                                className="block rounded py-2.5 text-sm text-white/70 hover:text-white lg:px-3"
+                                                                            >
+                                                                                {
+                                                                                    submenuItem.title
+                                                                                }
+                                                                            </Link>
+                                                                        )
+                                                                )}
                                                         </div>
                                                     </>
                                                 )}
