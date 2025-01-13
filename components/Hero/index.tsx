@@ -23,7 +23,7 @@ const Hero = () => {
                         Willkommen auf der Vereinswebseite vom Gasschutzkorps!
                     </h1>
 
-                    <div className="relative w-full py-6 px-4 text-white text-sm sm:text-base md:text-lg">
+                    <div className="relative w-full lg:w-1/2 py-6 px-4 pt-32 text-white text-sm sm:text-base md:text-lg">
                         <p>
                             Unser Verein setzt sich aus aktiven und ehemaligen
                             Feuerwehrleuten zusammen.
