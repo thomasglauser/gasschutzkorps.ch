@@ -6,7 +6,11 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import '../styles/index.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+    subsets: ['latin'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    variable: '--font-inter',
+});
 
 export default function RootLayout({
     children,
@@ -21,7 +25,7 @@ export default function RootLayout({
       */}
             <head />
 
-            <body className={`bg-black ${inter.className}`}>
+            <body className={`bg-black ${inter.variable}`}>
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=G-0YQYV9WXRD`}
                     strategy="afterInteractive"
