@@ -6,6 +6,10 @@ import { EventData } from '@/components/Events/EventData';
 export const metadata: Metadata = {
     title: 'Gasschutzkorps.ch | Anlässe',
     description: 'Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.',
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 const EventsPage = () => {

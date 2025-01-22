@@ -3,6 +3,10 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Gasschutzkorps.ch | Veteranen',
     description: 'Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.',
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 const VeteransPage = () => {

@@ -1,2 +1,11 @@
+# *
 User-agent: *
-Disallow: /public
+Allow: /
+Disallow: /legal
+Disallow: /imprint
+
+# Host
+Host: https://gasschutzkorps.ch/
+
+# Sitemaps
+Sitemap: https://gasschutzkorps.ch/sitemap.xml

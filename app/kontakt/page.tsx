@@ -5,6 +5,10 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Gasschutzkorps.ch | Kontakt',
     description: 'Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.',
+    robots: {
+        index: false,
+        follow: false,
+    },
 };
 
 const ContactPage = () => {
