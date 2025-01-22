@@ -25,7 +25,7 @@ const ImprintPage = () => {
                                         Verantwortlich für den Inhalt dieser
                                         Website:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Gasschutzkorps der Freiwilligen
                                         Feuerwehr der Stadt Zug
                                         <br />
@@ -39,13 +39,13 @@ const ImprintPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         Kontakt:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         E-Mail: info@gasschutzkorps.ch
                                     </p>
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         Vertretungsberechtigte Personen:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Michael Limacher, Präsident
                                         <br />
                                         Thomas Glauser, Beisitzer
@@ -53,7 +53,7 @@ const ImprintPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         Haftungsausschluss:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Der Verein übernimmt keine Gewähr für
                                         die Richtigkeit, Vollständigkeit und
                                         Aktualität der auf dieser Website
@@ -66,7 +66,7 @@ const ImprintPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         Urheberrecht:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Alle Inhalte (Texte, Bilder, Grafiken,
                                         Logos, etc.) auf dieser Website sind
                                         urheberrechtlich geschützt. Jede

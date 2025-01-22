@@ -13,16 +13,16 @@ const Footer = () => {
                     <div className="-mx-4 flex flex-wrap">
                         <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
                             <div className="mb-12 max-w-[360px] lg:mb-16">
-                                <p className="mb-9 text-base leading-relaxed text-body-color-dark">
+                                <p className="mb-9 text-base leading-relaxed text-gray-400">
                                     Gasschutzkorps der Freiwilligen Feuerwehr
                                     der Stadt Zug
                                 </p>
-                                <p className="mb-9 text-base leading-relaxed text-body-color-dark">
+                                <p className="mb-9 text-base leading-relaxed text-gray-400">
                                     Ahornstrasse 10, 6300 Zug
                                 </p>
                                 <Link
                                     href="mailto:info@gasschutzkorps.ch"
-                                    className="mb-9 text-base leading-relaxed text-body-color-dark"
+                                    className="mb-9 text-base leading-relaxed text-gray-400"
                                     target="blank"
                                 >
                                     info@gasschutzkorps.ch
@@ -39,7 +39,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="https://www.instagram.com/gasschutzkorps_ffz"
-                                            className="mb-4 inline-block text-base text-body-color"
+                                            className="mb-4 inline-block text-base duration-300 hover:text-white text-gray-400"
                                             target="blank"
                                         >
                                             <FaInstagram size={30} />
@@ -48,7 +48,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="https://www.facebook.com/Gasschutzkorps"
-                                            className="mb-4 inline-block text-base text-body-color"
+                                            className="mb-4 inline-block text-base duration-300 hover:text-white text-gray-400"
                                             target="blank"
                                         >
                                             <FaFacebook size={30} />
@@ -57,7 +57,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="https://www.youtube.com/watch?v=zIMCXZ2CQTw"
-                                            className="mb-4 inline-block text-base text-body-color"
+                                            className="mb-4 inline-block text-base duration-300 hover:text-white text-gray-400"
                                             target="blank"
                                         >
                                             <FaYoutube size={30} />
@@ -76,7 +76,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="imprint"
-                                            className="mb-4 inline-block text-base duration-300 hover:text-primary text-body-color-dark"
+                                            className="mb-4 inline-block text-base duration-300 hover:text-white text-gray-400"
                                         >
                                             Impressum
                                         </Link>
@@ -84,7 +84,7 @@ const Footer = () => {
                                     <li>
                                         <Link
                                             href="legal"
-                                            className="mb-4 inline-block text-base duration-300 hover:text-primary text-body-color-dark"
+                                            className="mb-4 inline-block text-base duration-300 hover:text-white text-gray-400"
                                         >
                                             Datenschutzerklärung
                                         </Link>

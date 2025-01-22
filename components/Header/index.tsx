@@ -115,7 +115,7 @@ const Header = () => {
                                                             usePathName ===
                                                             menuItem.path
                                                                 ? 'text-white'
-                                                                : 'text-white/70 hover:text-white'
+                                                                : 'text-white/70 hover:text-white duration-300'
                                                         }`}
                                                     >
                                                         {menuItem.title}
@@ -128,7 +128,7 @@ const Header = () => {
                                                                     index
                                                                 )
                                                             }
-                                                            className="flex cursor-pointer items-center justify-between py-2 text-base text-white/70 group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
+                                                            className="flex cursor-pointer items-center justify-between py-2 text-base text-white/70 duration-300 group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
                                                         >
                                                             {menuItem.title}
                                                             <span className="pl-3">
@@ -168,7 +168,7 @@ const Header = () => {
                                                                                 key={
                                                                                     index
                                                                                 }
-                                                                                className="block rounded py-2.5 text-sm text-white/70 hover:text-white lg:px-3"
+                                                                                className="block rounded py-2.5 text-sm text-white/70 duration-300 hover:text-white lg:px-3"
                                                                             >
                                                                                 {
                                                                                     submenuItem.title

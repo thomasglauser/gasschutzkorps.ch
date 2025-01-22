@@ -21,7 +21,7 @@ const HistoryPage = () => {
                                     Unsere Geschichte
                                 </h2>
                                 <div>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Bereits früher gab es einen Gasschutz in
                                         der Freiwilligen Feuerwehr der Stadt
                                         Zug. Geeignete Leute in den
@@ -31,7 +31,7 @@ const HistoryPage = () => {
                                         wäre, die Träger von Kreislaufgeräten in
                                         einem eigenen Korps zusammenzufassen.
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Am 28. Juni 1951 fand in dem Restaurant
                                         Taube die Gründungsversammlung statt. Es
                                         wurde Heinrich Schwerzmann als Chef
@@ -40,7 +40,7 @@ const HistoryPage = () => {
                                         organisierte den ersten Vereinsanlass -
                                         eine Feuerwehrreise.
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         In den ersten Jahren seines Bestehens
                                         wurde das Kreislaufgeräte-Korps nicht
                                         oft zu Einsätzen gerufen, obschon man
@@ -68,7 +68,7 @@ const HistoryPage = () => {
                                         Millionen Franken nicht abgewendet
                                         werden.
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         1976 feierte das Korps sein 25-jähriges
                                         Bestehen mit einem grossen Fest. Aber
                                         auch dienstlich wurde ein Markstein

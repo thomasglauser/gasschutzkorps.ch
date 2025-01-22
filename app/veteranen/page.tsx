@@ -21,7 +21,7 @@ const VeteransPage = () => {
                                     Gasschutz - Veteranen der FFZ
                                 </h2>
                                 <div>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Ziemlich genau 25 Jahre nach der
                                         Gründung des Gasschutzkorps, am 30.
                                         August 1976 wurde die Organisation
@@ -33,7 +33,7 @@ const VeteransPage = () => {
                                         sind auch heute noch fester Bestandteil
                                         bei der Ausgestaltung des Vereinslebens.
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Die GS Veteranen rekrutieren sich aus
                                         Ehrenmitgliedern des GS Korps sowie
                                         ausgetretenen GS - Aktivmitgliedern,
@@ -46,7 +46,7 @@ const VeteransPage = () => {
                                         Obmann, einem Kassier sowie einem Aktuar
                                         zusammensetzt, wahrgenommen.
                                     </p>
-                                    <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Das Jahresprogramm streut die Anlässe
                                         gut verteilt auf das Jahr und in
                                         Koordination mit dem Programm der
@@ -54,7 +54,7 @@ const VeteransPage = () => {
                                         jährlich wiederkehrenden Anlässe:
                                     </p>
 
-                                    <ul className="mb-8 max-w-md list-inside list-disc space-y-1 text-base font-medium leading-relaxed text-body-color">
+                                    <ul className="mb-8 max-w-md list-inside list-disc space-y-1 text-base font-normal leading-relaxed text-gray-400">
                                         <li>
                                             Hauptversammlung Gasschutz Veteranen
                                         </li>
@@ -66,12 +66,12 @@ const VeteransPage = () => {
                                         <li>Übungsbesuch des GS Korps</li>
                                     </ul>
 
-                                    <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Zusätzlich gibt es noch gemeinsame
                                         Anlässe mit den Aktiven des GS Korps:
                                     </p>
 
-                                    <ul className="mb-8 max-w-md list-inside list-disc space-y-1 text-base font-medium leading-relaxed text-body-color">
+                                    <ul className="mb-8 max-w-md list-inside list-disc space-y-1 text-base font-normal leading-relaxed text-gray-400">
                                         <li>
                                             Generalversammlung Gasschutzkorps
                                         </li>
@@ -81,7 +81,7 @@ const VeteransPage = () => {
                                         <li>Samichlausabend</li>
                                     </ul>
 
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Nebst den fest verankerten Aktivitäten
                                         finden auch immer wieder ad hoc Anlässe
                                         statt und runden so das Jahresprogramm

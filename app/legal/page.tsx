@@ -20,7 +20,7 @@ const LegalPage = () => {
                                 <h2 className="mb-8 text-3xl font-bold leading-tight text-white sm:text-4xl sm:leading-tight">
                                     Datenschutzerklärung
                                 </h2>
-                                <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                     Die vorliegende Datenschutzerklärung klärt
                                     Sie über die Art, den Umfang und den Zweck
                                     der Erhebung und Verwendung
@@ -38,7 +38,7 @@ const LegalPage = () => {
                                         1. Verantwortlich für den Inhalt dieser
                                         Website:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Gasschutzkorps der Freiwilligen
                                         Feuerwehr der Stadt Zug
                                         <br />
@@ -52,13 +52,13 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         Kontakt:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         E-Mail: info@gasschutzkorps.ch
                                     </p>
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         Vertretungsberechtigte Personen:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Michael Limacher, Präsident
                                         <br />
                                         Thomas Glauser, Beisitzer
@@ -66,7 +66,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         2. Hosting:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Unsere Webseite wird auf der Google
                                         Cloud Plattform (Google App Engine)
                                         gehostet. Der Anbieter ist Google
@@ -86,7 +86,7 @@ const LegalPage = () => {
                                         3. Erhebung und Verarbeitung
                                         personenbezogener Daten:
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Wir erheben und verarbeiten Ihre
                                         personenbezogenen Daten nur, soweit dies
                                         zur Bereitstellung einer
@@ -94,7 +94,7 @@ const LegalPage = () => {
                                         Inhalte und Leistungen erforderlich ist.
                                         Folgende Daten werden erhoben:
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         - Beim Besuch der Webseite: IP-Adresse,
                                         Datum und Uhrzeit der Anfrage,
                                         Zeitzonendifferenz zur Greenwich Mean
@@ -107,7 +107,7 @@ const LegalPage = () => {
                                         sowie Sprache und Version der
                                         Browsersoftware.
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         - Bei Nutzung des Kontaktformulars:
                                         Name, E-Mail-Adresse, Telefonnummer
                                         (falls angegeben) und die von Ihnen
@@ -118,7 +118,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         4. Drittanbieter-Dienste
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         a) Google Analytics
                                         <br />
                                         Unsere Webseite verwendet Google
@@ -149,7 +149,7 @@ const LegalPage = () => {
                                         Datenschutzerklärung von Google:
                                         https://policies.google.com/privacy.
                                     </p>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         b) Web3Forms
                                         <br />
                                         Für die Verarbeitung von Formularen
@@ -166,7 +166,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         5. Cookies
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Unsere Webseite verwendet Cookies, um
                                         die Benutzerfreundlichkeit zu verbessern
                                         und bestimmte Funktionen zu ermöglichen.
@@ -184,7 +184,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         6. Datenweitergabe
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Eine Weitergabe Ihrer personenbezogenen
                                         Daten erfolgt nur, wenn dies zur
                                         Vertragserfüllung erforderlich ist, Sie
@@ -196,7 +196,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         7. Ihre Rechte
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Sie haben das Recht: <br />
                                         - Auskunft über Ihre gespeicherten
                                         personenbezogenen Daten zu verlangen
@@ -228,7 +228,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         8. Datensicherheit
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Wir setzen technische und
                                         organisatorische Sicherheitsmaßnahmen
                                         ein, um Ihre Daten gegen Manipulation,
@@ -241,7 +241,7 @@ const LegalPage = () => {
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         9. Änderungen der Datenschutzerklärung
                                     </h3>
-                                    <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                                    <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Wir behalten uns das Recht vor, diese
                                         Datenschutzerklärung anzupassen, um sie
                                         an geänderte Rechtslagen oder bei
