@@ -18,4 +18,7 @@ steps:
               'gcloud config set app/cloud_build_timeout 600 && gcloud app deploy',
           ]
 
+options:
+    logging: CLOUD_LOGGING_ONLY
+
 timeout: '600s'
