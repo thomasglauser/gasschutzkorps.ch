@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 
 import vorstandImage from '/public/images/groups/vorstand.webp';
 import mlimacherImage from '/public/images/persons/michael-limacher.webp';
-import mwälchlinImage from '/public/images/persons/manfred-waelchlin.webp';
+import tglauserImage from '/public/images/persons/thomas-glauser.webp';
 import mskupchImage from '/public/images/persons/markus-skupch.webp';
-import phäuselmannImage from '/public/images/persons/patrick-haeuselmann.webp';
+import rjennyImage from '/public/images/persons/roman-jenny.webp';
 import mschüleImage from '/public/images/persons/martina-schüle.webp';
 
 const ExecutivePage = () => {
@@ -38,58 +38,41 @@ const ExecutivePage = () => {
                                     style={{ width: '100%' }}
                                     className="rounded-md"
                                 />
-                                <div className="col-span-4 mt-20 flex justify-center">
-                                    <Person
-                                        firstname="Michael"
-                                        lastname="Limacher"
-                                        primaryFunction="Präsident"
-                                        secondaryFunctions="Atemschutz, Seedienst"
-                                        functionFFZ="Soldat"
-                                        joined="2009"
-                                        imagePath={mlimacherImage}
-                                    />
-                                </div>
-
-                                <div className="mt-4 grid grid-cols-4 justify-items-center gap-4">
-                                    <Person
-                                        firstname="Manfred"
-                                        lastname="Wälchli"
-                                        primaryFunction="Kassier"
-                                        secondaryFunctions=""
-                                        functionFFZ="Soldat"
-                                        joined="2015"
-                                        imagePath={mwälchlinImage}
-                                    />
-
-                                    <Person
-                                        firstname="Markus"
-                                        lastname="Skupch"
-                                        primaryFunction="Beisitzer"
-                                        secondaryFunctions="Atemschutz, Chemiewehr"
-                                        functionFFZ="Soldat"
-                                        joined="2015"
-                                        imagePath={mskupchImage}
-                                    />
-
-                                    <Person
-                                        firstname="Patrick"
-                                        lastname="Häuselmann"
-                                        primaryFunction="Beisitzer"
-                                        secondaryFunctions=""
-                                        functionFFZ="Offizier"
-                                        joined="2006"
-                                        imagePath={phäuselmannImage}
-                                    />
-
-                                    <Person
-                                        firstname="Martina"
-                                        lastname="Schüle"
-                                        primaryFunction="Aktuarin"
-                                        secondaryFunctions="Atemschutz, Chemiewehr, Kader FFZ, FUST, Techzug, Jugendfeuerwehr-Kader"
-                                        functionFFZ="Wachtmeister"
-                                        joined="2019"
-                                        imagePath={mschüleImage}
-                                    />
+                                <div className="container mx-auto px-4">
+                                    <div className="flex justify-center mt-20">
+                                        <Person
+                                            firstname="Michael"
+                                            lastname="Limacher"
+                                            primaryFunction="Präsident"
+                                            imagePath={mlimacherImage}
+                                        />
+                                    </div>
+                                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 lg:gap-48">
+                                        <Person
+                                            firstname="Thomas"
+                                            lastname="Glauser"
+                                            primaryFunction="Beisitzer"
+                                            imagePath={tglauserImage}
+                                        />
+                                        <Person
+                                            firstname="Markus"
+                                            lastname="Skupch"
+                                            primaryFunction="Beisitzer"
+                                            imagePath={mskupchImage}
+                                        />
+                                        <Person
+                                            firstname="Roman"
+                                            lastname="Jenny"
+                                            primaryFunction="Kassier"
+                                            imagePath={rjennyImage}
+                                        />
+                                        <Person
+                                            firstname="Martina"
+                                            lastname="Schüle"
+                                            primaryFunction="Aktuarin"
+                                            imagePath={mschüleImage}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
