@@ -44,7 +44,7 @@ const Header = () => {
             <header
                 className={`header left-0 top-0 z-40 flex w-full items-center ${
                     sticky
-                        ? 'fixed z-[9999] !bg-opacity-80 backdrop-blur-sm transition bg-gray-dark shadow-sticky-dark'
+                        ? 'fixed z-9999 bg-opacity-80! backdrop-blur-xs transition bg-gray-dark shadow-sticky-dark'
                         : 'absolute bg-transparent'
                 }`}
             >
@@ -168,7 +168,7 @@ const Header = () => {
                                                                                 key={
                                                                                     index
                                                                                 }
-                                                                                className="block rounded py-2.5 text-sm text-white/70 duration-300 hover:text-white lg:px-3"
+                                                                                className="block rounded-sm py-2.5 text-sm text-white/70 duration-300 hover:text-white lg:px-3"
                                                                             >
                                                                                 {
                                                                                     submenuItem.title

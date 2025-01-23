@@ -94,7 +94,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="h-px w-full bg-gradient-to-r from-transparent to-transparent via-[#959CB183]"></div>
+                    <div className="h-px w-full bg-linear-to-r from-transparent to-transparent via-[#959CB183]"></div>
                     <div className="py-8">
                         <p className="text-center text-base text-white">
                             Gott zur Ehr, dem nächsten zur Wehr.
