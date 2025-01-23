@@ -39,6 +39,10 @@ const Header = () => {
 
     const usePathName = usePathname();
 
+    const handleNavLinkClick = () => {
+        setNavbarOpen(false);
+    };
+
     return (
         <>
             <header
@@ -111,6 +115,9 @@ const Header = () => {
                                                 {menuItem.path ? (
                                                     <Link
                                                         href={menuItem.path}
+                                                        onClick={
+                                                            handleNavLinkClick
+                                                        }
                                                         className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
                                                             usePathName ===
                                                             menuItem.path
@@ -164,6 +171,9 @@ const Header = () => {
                                                                             <Link
                                                                                 href={
                                                                                     submenuItem.path
+                                                                                }
+                                                                                onClick={
+                                                                                    handleNavLinkClick
                                                                                 }
                                                                                 key={
                                                                                     index

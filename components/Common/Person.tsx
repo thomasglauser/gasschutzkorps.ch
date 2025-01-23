@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface PersonProps {
@@ -16,17 +16,30 @@ const Person = ({
     imagePath,
 }: PersonProps) => {
     const [hovered, setHovered] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    const toggleHover = () => {
-        setHovered((prev) => !prev);
+    const handleInteraction = () => {
+        if (isMobile) {
+            setHovered((prev) => !prev); // Toggle on click for mobile
+        }
     };
+
+    // Set `isMobile` based on screen size
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // Customize breakpoint if needed
+        };
+        handleResize(); // Check initially
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div
-            className="relative flex w-[200px] justify-center rounded-md shadow-lg transition-shadow duration-300 hover:shadow-2xl"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onClick={toggleHover}
+            className="relative flex w-[200px] justify-center rounded-md"
+            onMouseEnter={!isMobile ? () => setHovered(true) : undefined}
+            onMouseLeave={!isMobile ? () => setHovered(false) : undefined}
+            onClick={handleInteraction}
         >
             <Image
                 src={imagePath}
@@ -43,7 +56,7 @@ const Person = ({
                     transition:
                         'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
                 }}
-                className="absolute inset-0 flex flex-col items-center justify-center bg-gray-dark bg-opacity-70 p-4 text-center text-white"
+                className="absolute inset-0 flex flex-col items-center justify-center bg-black border-white border-2 bg-opacity-70 p-4 text-center text-white"
             >
                 <h2 className="text-2xl font-bold">
                     {firstname} {lastname}

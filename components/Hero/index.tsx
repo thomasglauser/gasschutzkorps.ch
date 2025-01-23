@@ -59,7 +59,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className="absolute inset-0 z-0 bg-black opacity-60"></div>
+                <div className="absolute inset-0 z-0 bg-black opacity-65"></div>
             </div>
         </>
     );
