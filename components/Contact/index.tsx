@@ -75,7 +75,7 @@ const Contact = () => {
                                                 name="name"
                                                 required
                                                 placeholder="Gib bitte deinen Vor- und Nachnamen ein"
-                                                className="w-full rounded-xs border border-stroke px-6 py-3 text-base outline-hidden border-transparent bg-[#2C303B] text-gray-400 shadow-two focus:border-primary focus:shadow-none"
+                                                className="w-full rounded-xs border px-6 py-3 text-base outline-hidden border-transparent bg-[#2C303B] text-gray-400 shadow-two focus:border-primary focus:shadow-none"
                                             />
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@ const Contact = () => {
                                                 name="email"
                                                 required
                                                 placeholder="Gib bitte deine E-Mail-Adresse ein"
-                                                className="w-full rounded-xs border border-stroke px-6 py-3 text-base outline-hidden border-transparent bg-[#2C303B] text-gray-400 shadow-two focus:border-primary focus:shadow-none"
+                                                className="w-full rounded-xs border px-6 py-3 text-base outline-hidden border-transparent bg-[#2C303B] text-gray-400 shadow-two focus:border-primary focus:shadow-none"
                                             />
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@ const Contact = () => {
                                                 required
                                                 rows={5}
                                                 placeholder="Schreibe hier deine Nachricht"
-                                                className="w-full resize-none rounded-xs border border-stroke px-6 py-3 text-base outline-hidden border-transparent bg-[#2C303B] text-gray-400 shadow-two focus:border-primary focus:shadow-none"
+                                                className="w-full resize-none rounded-xs border px-6 py-3 text-base outline-hidden border-transparent bg-[#2C303B] text-gray-400 shadow-two focus:border-primary focus:shadow-none"
                                             ></textarea>
                                         </div>
                                     </div>
