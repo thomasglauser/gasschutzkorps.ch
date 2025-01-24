@@ -72,11 +72,11 @@ const LegalPage = () => {
                                         gehostet. Der Anbieter ist Google
                                         Ireland Limited, Gordon House, Barrow
                                         Street, Dublin 4, Irland. Dabei können
-                                        Daten auch auf Servern außerhalb der
+                                        Daten auch auf Servern ausserhalb der
                                         Schweiz und der EU verarbeitet werden,
                                         insbesondere in den USA. Google stellt
                                         sicher, dass durch geeignete
-                                        Sicherheitsmaßnahmen ein angemessenes
+                                        Sicherheitsmassnahmen ein angemessenes
                                         Datenschutzniveau gewährleistet wird.
                                         Weitere Informationen finden Sie in der
                                         Datenschutzerklärung von Google:
@@ -176,7 +176,7 @@ const LegalPage = () => {
                                         Sie über das Setzen von Cookies
                                         informiert werden, Cookies nur im
                                         Einzelfall erlauben oder generell
-                                        ausschließen. Bitte beachten Sie, dass
+                                        ausschliessen. Bitte beachten Sie, dass
                                         bei der Deaktivierung von Cookies die
                                         Funktionalität dieser Webseite
                                         eingeschränkt sein kann.
@@ -223,20 +223,20 @@ const LegalPage = () => {
                                         -Sich bei einer Aufsichtsbehörde zu
                                         beschweren, wenn Sie der Ansicht sind,
                                         dass die Verarbeitung Ihrer Daten gegen
-                                        geltendes Datenschutzrecht verstößt.
+                                        geltendes Datenschutzrecht verstösst.
                                     </p>
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         8. Datensicherheit
                                     </h3>
                                     <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                                         Wir setzen technische und
-                                        organisatorische Sicherheitsmaßnahmen
+                                        organisatorische Sicherheitsmassnahmen
                                         ein, um Ihre Daten gegen Manipulation,
                                         Verlust, Zerstörung oder unberechtigten
                                         Zugriff zu schützen. Unsere
-                                        Sicherheitsmaßnahmen werden entsprechend
-                                        der technologischen Entwicklung
-                                        fortlaufend verbessert.
+                                        Sicherheitsmassnahmen werden
+                                        entsprechend der technologischen
+                                        Entwicklung fortlaufend verbessert.
                                     </p>
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         9. Änderungen der Datenschutzerklärung
