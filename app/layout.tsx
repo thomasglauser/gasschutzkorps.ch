@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Inter } from 'next/font/google';
@@ -17,6 +18,25 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
+    useEffect(() => {
+        console.log(`
+   _______  _______  ________      __   __    ___     _     ___  
+  |   ____||   ____||       /     /_ | /_ |  / _ \\   / \\   /  /  
+  |  |__   |  |__   \`---/  /       | |  | | | (_) | ( o ) /  /   
+  |   __|  |   __|     /  /        | |  | |  > _ <   \\_/ /  / _  
+  |  |     |  |       /  /----.    | |  | | | (_) |     /  / / \\ 
+  |__|     |__|      /________|    |_|  |_|  \\___/     /  / ( o )
+                                                      /__/   \\_/ 
+           `);
+        console.log(`
+  ,-n-."HHHHHHHHHH                   _
+  L_| |______|"""o|                ;" ".
+  |_  ____________|--___      _   J    l
+  "(_,------(_,(_,P    _)    /O  /     
+                      (_____--P=       AA
+                              H       A###
+    `);
+    }, []);
     return (
         <html suppressHydrationWarning lang="de">
             {/*
