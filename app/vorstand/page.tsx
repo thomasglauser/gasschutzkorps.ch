@@ -1,7 +1,8 @@
-import Image from 'next/image';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
-import Person from '@/components/Common/Person';
+import vorstandImage from '/public/images/groups/vorstand.webp';
+import PersonGroup from '@/components/Common/PersonGroup';
 
 export const metadata: Metadata = {
     title: 'Gasschutzkorps.ch | Vorstand',
@@ -11,13 +12,6 @@ export const metadata: Metadata = {
         follow: true,
     },
 };
-
-import vorstandImage from '/public/images/groups/vorstand.webp';
-import mlimacherImage from '/public/images/persons/michael-limacher.webp';
-import tglauserImage from '/public/images/persons/thomas-glauser.webp';
-import mskupchImage from '/public/images/persons/markus-skupch.webp';
-import rjennyImage from '/public/images/persons/roman-jenny.webp';
-import mschüleImage from '/public/images/persons/martina-schüle.webp';
 
 const ExecutivePage = () => {
     return (
@@ -38,42 +32,7 @@ const ExecutivePage = () => {
                                     style={{ width: '100%' }}
                                     className="rounded-md"
                                 />
-                                <div className="container mx-auto px-4">
-                                    <div className="flex justify-center mt-20">
-                                        <Person
-                                            firstname="Michael"
-                                            lastname="Limacher"
-                                            primaryFunction="Präsident"
-                                            imagePath={mlimacherImage}
-                                        />
-                                    </div>
-                                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 lg:gap-48">
-                                        <Person
-                                            firstname="Thomas"
-                                            lastname="Glauser"
-                                            primaryFunction="Beisitzer"
-                                            imagePath={tglauserImage}
-                                        />
-                                        <Person
-                                            firstname="Markus"
-                                            lastname="Skupch"
-                                            primaryFunction="Beisitzer"
-                                            imagePath={mskupchImage}
-                                        />
-                                        <Person
-                                            firstname="Roman"
-                                            lastname="Jenny"
-                                            primaryFunction="Kassier"
-                                            imagePath={rjennyImage}
-                                        />
-                                        <Person
-                                            firstname="Martina"
-                                            lastname="Schüle"
-                                            primaryFunction="Aktuarin"
-                                            imagePath={mschüleImage}
-                                        />
-                                    </div>
-                                </div>
+                                <PersonGroup />
                             </div>
                         </div>
                     </div>

@@ -1,44 +1,50 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface PersonProps {
+    id: string;
     firstname: string;
     lastname: string;
     primaryFunction: string;
     imagePath: any;
+    hoveredPerson: string | null;
+    setHoveredPerson: (id: string | null) => void;
 }
 
 const Person = ({
+    id,
     firstname,
     lastname,
     primaryFunction,
     imagePath,
+    hoveredPerson,
+    setHoveredPerson,
 }: PersonProps) => {
-    const [hovered, setHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
-    const handleInteraction = () => {
-        if (isMobile) {
-            setHovered((prev) => !prev); // Toggle on click for mobile
-        }
-    };
-
-    // Set `isMobile` based on screen size
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768); // Customize breakpoint if needed
+            setIsMobile(window.innerWidth <= 768);
         };
-        handleResize(); // Check initially
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const isHovered = hoveredPerson === id;
+
+    const handleInteraction = () => {
+        if (isMobile) {
+            setHoveredPerson(isHovered ? null : id);
+        }
+    };
+
     return (
         <div
             className="relative flex w-[200px] justify-center rounded-md"
-            onMouseEnter={!isMobile ? () => setHovered(true) : undefined}
-            onMouseLeave={!isMobile ? () => setHovered(false) : undefined}
+            onMouseEnter={!isMobile ? () => setHoveredPerson(id) : undefined}
+            onMouseLeave={!isMobile ? () => setHoveredPerson(null) : undefined}
             onClick={handleInteraction}
         >
             <Image
@@ -51,8 +57,8 @@ const Person = ({
             />
             <div
                 style={{
-                    visibility: hovered ? 'visible' : 'hidden',
-                    opacity: hovered ? 1 : 0,
+                    visibility: isHovered ? 'visible' : 'hidden',
+                    opacity: isHovered ? 1 : 0,
                     transition:
                         'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
                 }}
