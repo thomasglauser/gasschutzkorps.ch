@@ -116,7 +116,7 @@ const Contact = () => {
                                     <div className="w-full px-4">
                                         <button
                                             type="submit"
-                                            className={`rounded-sm px-9 py-4 text-base font-medium text-white duration-300 shadow-submit-dark ${
+                                            className={`rounded-sm px-9 py-4 text-base font-medium text-white cursor-pointer duration-300 shadow-submit-dark ${
                                                 status === 'loading'
                                                     ? 'bg-gray-500 cursor-not-allowed'
                                                     : status === 'success'
