@@ -15,32 +15,25 @@ const menuData: Menu[] = [
     },
     {
         id: 3,
-        title: 'Verein',
+        title: 'Anlässe',
+        path: '/events',
         newTab: false,
-        submenu: [
-            {
-                id: 31,
-                title: 'Anlässe',
-                path: '/events',
-                newTab: false,
-            },
-            {
-                id: 32,
-                title: 'Geschichte',
-                path: '/geschichte',
-                newTab: false,
-            },
-        ],
     },
     {
         id: 4,
+        title: 'Geschichte',
+        path: '/geschichte',
+        newTab: false,
+    },
+    {
+        id: 5,
         title: 'Veteranen',
         path: '/veteranen',
         newTab: false,
     },
 
     {
-        id: 5,
+        id: 6,
         title: 'Kontakt',
         path: '/kontakt',
         newTab: false,
