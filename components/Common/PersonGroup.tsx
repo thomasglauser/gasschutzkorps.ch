@@ -28,6 +28,15 @@ const PersonGroup = () => {
                 </div>
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 lg:gap-48">
                     <Person
+                        id="mschüle"
+                        firstname="Martina"
+                        lastname="Schüle"
+                        primaryFunction="Aktuarin"
+                        imagePath={mschüleImage}
+                        hoveredPerson={hoveredPerson}
+                        setHoveredPerson={setHoveredPerson}
+                    />
+                    <Person
                         id="tglauser"
                         firstname="Thomas"
                         lastname="Glauser"
@@ -51,15 +60,6 @@ const PersonGroup = () => {
                         lastname="Jenny"
                         primaryFunction="Kassier"
                         imagePath={rjennyImage}
-                        hoveredPerson={hoveredPerson}
-                        setHoveredPerson={setHoveredPerson}
-                    />
-                    <Person
-                        id="mschüle"
-                        firstname="Martina"
-                        lastname="Schüle"
-                        primaryFunction="Aktuarin"
-                        imagePath={mschüleImage}
                         hoveredPerson={hoveredPerson}
                         setHoveredPerson={setHoveredPerson}
                     />
