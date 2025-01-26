@@ -5,6 +5,8 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import '../styles/index.css';
 
 const inter = Inter({
@@ -62,6 +64,7 @@ export default function RootLayout({
                 </Script>
                 <Header />
                 {children}
+                <SpeedInsights />
                 <Footer />
             </body>
         </html>
