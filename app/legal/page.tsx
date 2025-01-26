@@ -67,20 +67,19 @@ const LegalPage = () => {
                                         2. Hosting:
                                     </h3>
                                     <p className="mb-8 text-base font-normal text-gray-400 leading-relaxed sm:text-lg sm:leading-relaxed lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                                        Unsere Webseite wird auf der Google
-                                        Cloud Plattform (Google App Engine)
-                                        gehostet. Der Anbieter ist Google
-                                        Ireland Limited, Gordon House, Barrow
-                                        Street, Dublin 4, Irland. Dabei können
+                                        Unsere Webseite wird auf der Vercel
+                                        Plattform gehostet. Der Anbieter ist
+                                        Vercel Inc., 440 N Barranca Ave #4133,
+                                        Covina, CA 91723, USA. Dabei können
                                         Daten auch auf Servern ausserhalb der
                                         Schweiz und der EU verarbeitet werden,
-                                        insbesondere in den USA. Google stellt
+                                        insbesondere in den USA. Vercel stellt
                                         sicher, dass durch geeignete
                                         Sicherheitsmassnahmen ein angemessenes
                                         Datenschutzniveau gewährleistet wird.
                                         Weitere Informationen finden Sie in der
-                                        Datenschutzerklärung von Google:
-                                        https://policies.google.com/privacy.
+                                        Datenschutzerklärung von Vercel:
+                                        https://vercel.com/legal/privacy-policy.
                                     </p>
                                     <h3 className="text-xl font-bold leading-tight text-white sm:text-lg sm:leading-tight">
                                         3. Erhebung und Verarbeitung
