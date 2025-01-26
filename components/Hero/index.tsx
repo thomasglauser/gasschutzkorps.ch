@@ -1,24 +1,43 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 
-import heroImage from '/public/images/general/hero_1.webp';
+const images = ['/images/general/hero_1.webp', '/images/general/hero_2.webp'];
 
 const Hero = () => {
     return (
         <>
             <div className="relative min-h-screen w-full">
-                <div className="absolute inset-0 h-screen">
-                    <Image
-                        src={heroImage}
-                        alt="Background"
-                        fill={true}
-                        style={{ objectFit: 'cover' }}
-                        placeholder="blur"
-                        priority
-                    />
+                <div className="absolute inset-0 h-screen z-0">
+                    <Swiper
+                        modules={[Autoplay]}
+                        autoplay={{ delay: 8000, disableOnInteraction: false }}
+                        loop
+                        className="absolute inset-0 h-screen w-screen"
+                    >
+                        {images.map((src, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="relative h-screen w-screen">
+                                    <Image
+                                        src={src}
+                                        alt="Background"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        priority
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
 
-                <div className="relative z-10 flex flex-col items-center justify-start pt-32 sm:pt-40 md:pt-48 lg:pt-56 xl:pt-64 text-center">
+                <div className="absolute inset-0 z-10 bg-black opacity-65"></div>
+
+                <div className="relative z-20 flex flex-col items-center justify-start pt-32 sm:pt-40 md:pt-48 lg:pt-56 xl:pt-64 text-center">
                     <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-white px-4">
                         Willkommen auf der Vereinswebseite vom Gasschutzkorps!
                     </h1>
@@ -58,8 +77,6 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className="absolute inset-0 z-0 bg-black opacity-65"></div>
             </div>
         </>
     );
