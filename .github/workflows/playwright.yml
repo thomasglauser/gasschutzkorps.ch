@@ -2,7 +2,8 @@ name: Playwright Tests
 
 on:
     workflow_run:
-        workflows: ['CI']
+        workflows:
+            - 'CI'
         types:
             - completed
 
