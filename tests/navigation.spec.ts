@@ -21,19 +21,26 @@ test('navigation', async ({ page }) => {
     await page.getByRole('link', { name: 'Kontakt' }).click();
     await expect(page.locator('body')).toContainText('Kontakt');
 
+    await page
+        .locator('#navbarCollapse')
+        .getByRole('link', { name: 'Kontakt' })
+        .click();
+    await expect(page.locator('#contact-form')).toContainText(
+        'Nachricht senden'
+    );
+
     await page.getByRole('link', { name: 'Impressum' }).click();
-    await expect(page.locator('section')).toContainText('Impressum');
+    await expect(page.locator('section').first()).toContainText(
+        'Verantwortlich für den Inhalt dieser Website:'
+    );
 
     await page.getByRole('link', { name: 'Datenschutzerklärung' }).click();
-    await expect(page.locator('section')).toContainText('Datenschutzerklärung');
+    await expect(page.locator('section').first()).toContainText('2. Hosting:');
+
     await page
         .getByRole('link', { name: 'Gasschutzkorps', exact: true })
         .click();
     await expect(page.locator('h1')).toContainText(
         'Willkommen auf der Vereinswebseite vom Gasschutzkorps!'
-    );
-    await page.getByRole('link', { name: 'Kontakt' }).nth(1).click();
-    await expect(page.locator('#contact-form')).toContainText(
-        'Nachricht senden'
     );
 });
