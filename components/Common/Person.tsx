@@ -42,6 +42,7 @@ const Person = ({
 
     return (
         <div
+            data-testid={id}
             className="relative flex w-[200px] justify-center rounded-md"
             onMouseEnter={!isMobile ? () => setHoveredPerson(id) : undefined}
             onMouseLeave={!isMobile ? () => setHoveredPerson(null) : undefined}
