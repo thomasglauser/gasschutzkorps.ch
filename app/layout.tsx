@@ -40,13 +40,8 @@ export default function RootLayout({
     `);
     }, []);
     return (
-        <html suppressHydrationWarning lang="de">
-            {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+        <html lang="de">
             <head />
-
             <body className={`bg-black ${inter.variable}`}>
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=G-0YQYV9WXRD`}
