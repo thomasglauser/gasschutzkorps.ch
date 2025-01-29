@@ -1,21 +1,40 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
-import heroImage from '/public/images/general/hero.webp';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+
+const images = ['/images/general/hero_1.webp', '/images/general/hero_2.webp'];
 
 const Hero = () => {
     return (
         <>
             <div className="relative min-h-screen w-full">
                 <div className="absolute inset-0 h-screen z-0">
-                    <Image
-                        src={heroImage}
-                        alt="Background"
-                        fill={true}
-                        style={{ objectFit: 'cover' }}
-                        placeholder="blur"
-                        priority
-                    />
+                    <Swiper
+                        modules={[Autoplay]}
+                        autoplay={{ delay: 8000, disableOnInteraction: false }}
+                        loop
+                        className="absolute inset-0 h-screen w-screen"
+                    >
+                        {images.map((src, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="relative h-screen w-screen">
+                                    <Image
+                                        src={src}
+                                        alt="Background"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        loading="eager"
+                                        priority
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
 
                 <div className="absolute inset-0 z-10 bg-black opacity-65"></div>
