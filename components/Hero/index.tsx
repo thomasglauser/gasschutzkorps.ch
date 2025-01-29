@@ -1,21 +1,50 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 
-import heroImage from '/public/images/general/hero.webp';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+
+const images = ['/images/general/hero_1.webp', '/images/general/hero_2.webp'];
 
 const Hero = () => {
     return (
         <>
+            <Script id="preload-images">
+                {`
+                    ${images
+                        .map((src) => `new Image().src = "${src}";`)
+                        .join('')}
+                `}
+            </Script>
+
             <div className="relative min-h-screen w-full">
                 <div className="absolute inset-0 h-screen z-0">
-                    <Image
-                        src={heroImage}
-                        alt="Background"
-                        fill={true}
-                        style={{ objectFit: 'cover' }}
-                        placeholder="blur"
-                        priority
-                    />
+                    <Swiper
+                        modules={[Autoplay]}
+                        autoplay={{ delay: 5000, disableOnInteraction: false }}
+                        loop
+                        className="absolute inset-0 h-screen w-screen"
+                    >
+                        {images.map((src, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="relative h-screen w-screen">
+                                    <Image
+                                        src={src}
+                                        alt="Background"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        priority={index === 0}
+                                        loading={index === 0 ? 'eager' : 'lazy'}
+                                        sizes="100vw"
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
 
                 <div className="absolute inset-0 z-10 bg-black opacity-65"></div>
