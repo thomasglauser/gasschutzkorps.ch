@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -12,11 +13,19 @@ const images = ['/images/general/hero_1.webp', '/images/general/hero_2.webp'];
 const Hero = () => {
     return (
         <>
+            <Script id="preload-images">
+                {`
+                    ${images
+                        .map((src) => `new Image().src = "${src}";`)
+                        .join('')}
+                `}
+            </Script>
+
             <div className="relative min-h-screen w-full">
                 <div className="absolute inset-0 h-screen z-0">
                     <Swiper
                         modules={[Autoplay]}
-                        autoplay={{ delay: 8000, disableOnInteraction: false }}
+                        autoplay={{ delay: 5000, disableOnInteraction: false }}
                         loop
                         className="absolute inset-0 h-screen w-screen"
                     >
@@ -28,8 +37,9 @@ const Hero = () => {
                                         alt="Background"
                                         fill
                                         style={{ objectFit: 'cover' }}
-                                        loading="eager"
-                                        priority
+                                        priority={index === 0}
+                                        loading={index === 0 ? 'eager' : 'lazy'}
+                                        sizes="100vw"
                                     />
                                 </div>
                             </SwiperSlide>
