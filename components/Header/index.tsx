@@ -74,21 +74,21 @@ const Header = () => {
 
                 <button
                     onClick={() => setNavbarOpen(!navbarOpen)}
-                    className="lg:hidden focus:outline-none"
+                    className="lg:hidden focus:outline-none flex flex-col space-y-1 mr-6"
                 >
                     <div
-                        className={`w-8 h-1 bg-white my-1 transition-all ${
-                            navbarOpen ? 'rotate-45 translate-y-2' : ''
+                        className={`w-6 h-0.5 bg-white transition-all ${
+                            navbarOpen ? 'rotate-45 translate-y-1.5' : ''
                         }`}
                     />
                     <div
-                        className={`w-8 h-1 bg-white my-1 transition-all ${
+                        className={`w-6 h-0.5 bg-white transition-all ${
                             navbarOpen ? 'opacity-0' : ''
                         }`}
                     />
                     <div
-                        className={`w-8 h-1 bg-white my-1 transition-all ${
-                            navbarOpen ? '-rotate-45 -translate-y-2' : ''
+                        className={`w-6 h-0.5 bg-white transition-all ${
+                            navbarOpen ? '-rotate-45 -translate-y-1.5' : ''
                         }`}
                     />
                 </button>
