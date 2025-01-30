@@ -40,7 +40,12 @@ const Header = () => {
         >
             <div className="container mx-auto flex items-center p-4">
                 <Link href="/" className="w-60 max-w-full px-4 xl:mr-12">
-                    <Image src={logoImage} alt="Logo" width={140} height={30} />
+                    <Image
+                        src={logoImage}
+                        alt="Gasschutzkorps"
+                        width={140}
+                        height={30}
+                    />
                 </Link>
 
                 <nav className="hidden lg:flex space-x-6 ml-6">
