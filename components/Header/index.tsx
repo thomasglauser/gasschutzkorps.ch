@@ -46,20 +46,12 @@ const Header = () => {
                 <nav className="hidden lg:flex space-x-6">
                     {menuData.map((menuItem, index) => (
                         <div key={index} className="relative group">
-                            {menuItem.path ? (
-                                <Link
-                                    href={menuItem.path || '#'}
-                                    className="text-white hover:text-gray-400 duration-300"
-                                >
-                                    {menuItem.title}
-                                </Link>
-                            ) : (
-                                <>
-                                    <button className="text-white hover:text-gray-400">
-                                        {menuItem.title}
-                                    </button>
-                                </>
-                            )}
+                            <Link
+                                href={menuItem.path || '#'}
+                                className="text-white hover:text-gray-400 duration-300"
+                            >
+                                {menuItem.title}
+                            </Link>
                         </div>
                     ))}
                 </nav>
@@ -95,12 +87,12 @@ const Header = () => {
                         className="fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center space-y-6 lg:hidden"
                     >
                         {menuData.map((menuItem, index) => (
-                            <div key={index} className="text-white text-lg">
+                            <div key={index} className="text-lg">
                                 <button
                                     onClick={() =>
                                         handleNavClick(menuItem.path)
                                     }
-                                    className="hover:text-gray-400"
+                                    className="text-white"
                                 >
                                     {menuItem.title}
                                 </button>
