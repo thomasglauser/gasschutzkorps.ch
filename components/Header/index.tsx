@@ -11,7 +11,6 @@ import logoImage from '/public/images/general/logo.webp';
 const Header = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [sticky, setSticky] = useState(false);
-    const [openIndex, setOpenIndex] = useState(-1);
     const usePathName = usePathname();
     const router = useRouter();
 
@@ -50,7 +49,7 @@ const Header = () => {
                             {menuItem.path ? (
                                 <Link
                                     href={menuItem.path || '#'}
-                                    className="text-white hover:text-gray-400"
+                                    className="text-white hover:text-gray-400 duration-300"
                                 >
                                     {menuItem.title}
                                 </Link>
@@ -59,21 +58,6 @@ const Header = () => {
                                     <button className="text-white hover:text-gray-400">
                                         {menuItem.title}
                                     </button>
-                                    <div className="absolute left-0 mt-2 hidden group-hover:block bg-gray-800 p-2 rounded shadow-lg">
-                                        {menuItem.submenu?.map(
-                                            (submenuItem, subIndex) => (
-                                                <Link
-                                                    key={subIndex}
-                                                    href={
-                                                        submenuItem.path || '#'
-                                                    }
-                                                    className="block text-white hover:text-gray-400 px-4 py-2"
-                                                >
-                                                    {submenuItem.title}
-                                                </Link>
-                                            )
-                                        )}
-                                    </div>
                                 </>
                             )}
                         </div>
@@ -112,62 +96,14 @@ const Header = () => {
                     >
                         {menuData.map((menuItem, index) => (
                             <div key={index} className="text-white text-lg">
-                                {menuItem.path ? (
-                                    <button
-                                        onClick={() =>
-                                            handleNavClick(menuItem.path)
-                                        }
-                                        className="hover:text-gray-400"
-                                    >
-                                        {menuItem.title}
-                                    </button>
-                                ) : (
-                                    <>
-                                        <button
-                                            onClick={() =>
-                                                setOpenIndex(
-                                                    openIndex === index
-                                                        ? -1
-                                                        : index
-                                                )
-                                            }
-                                            className="hover:text-gray-400"
-                                        >
-                                            {menuItem.title}
-                                        </button>
-                                        <AnimatePresence>
-                                            {openIndex === index && (
-                                                <motion.div
-                                                    initial={{ height: 0 }}
-                                                    animate={{ height: 'auto' }}
-                                                    exit={{ height: 0 }}
-                                                    className="flex flex-col space-y-2 mt-2 text-sm"
-                                                >
-                                                    {menuItem.submenu?.map(
-                                                        (
-                                                            submenuItem,
-                                                            subIndex
-                                                        ) => (
-                                                            <button
-                                                                key={subIndex}
-                                                                onClick={() =>
-                                                                    handleNavClick(
-                                                                        submenuItem.path
-                                                                    )
-                                                                }
-                                                                className="hover:text-gray-400"
-                                                            >
-                                                                {
-                                                                    submenuItem.title
-                                                                }
-                                                            </button>
-                                                        )
-                                                    )}
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </>
-                                )}
+                                <button
+                                    onClick={() =>
+                                        handleNavClick(menuItem.path)
+                                    }
+                                    className="hover:text-gray-400"
+                                >
+                                    {menuItem.title}
+                                </button>
                             </div>
                         ))}
                     </motion.nav>
