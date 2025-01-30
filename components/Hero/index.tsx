@@ -39,7 +39,9 @@ const Hero = () => {
                                         style={{ objectFit: 'cover' }}
                                         priority={index === 0}
                                         loading={index === 0 ? 'eager' : 'lazy'}
-                                        sizes="100vw"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                                        quality={100}
+                                        unoptimized={true}
                                     />
                                 </div>
                             </SwiperSlide>
