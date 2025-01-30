@@ -21,7 +21,7 @@ const Hero = () => {
                 `}
             </Script>
 
-            <div className="relative min-h-screen w-full">
+            <div className="relative min-h-screen w-full overflow-x-hidden">
                 <div className="absolute inset-0 h-screen z-0">
                     <Swiper
                         modules={[Autoplay]}
