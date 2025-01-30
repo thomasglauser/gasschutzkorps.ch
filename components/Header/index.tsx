@@ -25,6 +25,14 @@ const Header = () => {
         setNavbarOpen(false);
     }, [usePathName]);
 
+    const handleNavClick = (path: any) => {
+        if (usePathName === path) {
+            setNavbarOpen(false);
+        } else {
+            router.push(path);
+        }
+    };
+
     return (
         <header
             className={`fixed top-0 left-0 w-full z-50 transition-all ${
@@ -105,12 +113,14 @@ const Header = () => {
                         {menuData.map((menuItem, index) => (
                             <div key={index} className="text-white text-lg">
                                 {menuItem.path ? (
-                                    <Link
-                                        href={menuItem.path || '#'}
+                                    <button
+                                        onClick={() =>
+                                            handleNavClick(menuItem.path)
+                                        }
                                         className="hover:text-gray-400"
                                     >
                                         {menuItem.title}
-                                    </Link>
+                                    </button>
                                 ) : (
                                     <>
                                         <button
@@ -138,18 +148,19 @@ const Header = () => {
                                                             submenuItem,
                                                             subIndex
                                                         ) => (
-                                                            <Link
+                                                            <button
                                                                 key={subIndex}
-                                                                href={
-                                                                    submenuItem.path ||
-                                                                    '#'
+                                                                onClick={() =>
+                                                                    handleNavClick(
+                                                                        submenuItem.path
+                                                                    )
                                                                 }
                                                                 className="hover:text-gray-400"
                                                             >
                                                                 {
                                                                     submenuItem.title
                                                                 }
-                                                            </Link>
+                                                            </button>
                                                         )
                                                     )}
                                                 </motion.div>
