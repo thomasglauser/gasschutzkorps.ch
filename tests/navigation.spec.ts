@@ -33,7 +33,9 @@ test('navigation', async ({ page }) => {
     await page.getByRole('link', { name: 'Datenschutzerklärung' }).click();
     await expect(page.locator('section').first()).toContainText('2. Hosting:');
 
-    await page.getByRole('link', { name: 'Logo' }).click();
+    await page
+        .getByRole('link', { name: 'Gasschutzkorps', exact: true })
+        .click();
     await expect(page.locator('h1')).toContainText(
         'Willkommen auf der Vereinswebseite vom Gasschutzkorps!'
     );
