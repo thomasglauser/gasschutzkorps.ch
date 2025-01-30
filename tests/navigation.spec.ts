@@ -21,10 +21,6 @@ test('navigation', async ({ page }) => {
     await page.getByRole('link', { name: 'Kontakt' }).click();
     await expect(page.locator('body')).toContainText('Kontakt');
 
-    await page
-        .locator('#navbarCollapse')
-        .getByRole('link', { name: 'Kontakt' })
-        .click();
     await expect(page.locator('#contact-form')).toContainText(
         'Nachricht senden'
     );

@@ -1,6 +1,6 @@
 {
     "name": "gasschutzkorps.ch",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@vercel/speed-insights": "^1.1.0",
+        "framer-motion": "^12.0.6",
         "next": "^15.1.6",
         "next-sitemap": "^4.2.3",
         "react": "^18.2.0",

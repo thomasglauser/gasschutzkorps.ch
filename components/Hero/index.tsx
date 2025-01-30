@@ -21,7 +21,7 @@ const Hero = () => {
                 `}
             </Script>
 
-            <div className="relative min-h-screen w-full">
+            <div className="relative min-h-screen w-full overflow-x-hidden">
                 <div className="absolute inset-0 h-screen z-0">
                     <Swiper
                         modules={[Autoplay]}
@@ -39,7 +39,8 @@ const Hero = () => {
                                         style={{ objectFit: 'cover' }}
                                         priority={index === 0}
                                         loading={index === 0 ? 'eager' : 'lazy'}
-                                        sizes="100vw"
+                                        quality={90}
+                                        unoptimized={true}
                                     />
                                 </div>
                             </SwiperSlide>
