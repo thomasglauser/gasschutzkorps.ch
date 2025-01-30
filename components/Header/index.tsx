@@ -38,12 +38,12 @@ const Header = () => {
                 sticky ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
             }`}
         >
-            <div className="container mx-auto flex items-center justify-between p-4">
-                <Link href="/" className="flex-shrink-0">
+            <div className="container mx-auto flex items-center p-4">
+                <Link href="/" className="w-60 max-w-full px-4 xl:mr-12">
                     <Image src={logoImage} alt="Logo" width={140} height={30} />
                 </Link>
 
-                <nav className="hidden lg:flex space-x-6">
+                <nav className="hidden lg:flex space-x-6 ml-6">
                     {menuData.map((menuItem, index) => (
                         <div key={index} className="relative group">
                             <Link
@@ -58,7 +58,7 @@ const Header = () => {
 
                 <button
                     onClick={() => setNavbarOpen(!navbarOpen)}
-                    className="lg:hidden focus:outline-none flex flex-col space-y-1 mr-6"
+                    className="lg:hidden focus:outline-none flex flex-col space-y-1 ml-auto mr-10"
                 >
                     <div
                         className={`w-6 h-0.5 bg-white transition-all ${
