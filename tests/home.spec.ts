@@ -25,5 +25,7 @@ test('home', async ({ page }) => {
 
     await expect(page.getByText('Du hast Lust, unseren Verein')).toBeVisible();
 
-    await expect(page.getByText('Gott zur Ehr, dem nächsten')).toBeVisible();
+    await expect(
+        page.getByText('Sichern, Retten, Halten, Schützen, Bewältigen')
+    ).toBeVisible();
 });
