@@ -1,18 +1,25 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-const ZugCoordinates = [47.1662, 8.5155];
-const addresses = [
-    { name: 'Bundesplatz 1, 6300 Zug', coords: [47.1722, 8.5174] },
-    { name: 'Baarerstrasse 14, 6300 Zug', coords: [47.1755, 8.5202] },
-    { name: 'Poststrasse 1, 6300 Zug', coords: [47.1711, 8.5159] },
-];
+const ZugCoordinates: [number, number] = [47.1662, 8.5155];
 
-function getDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
-    const R = 6371; // Radius of the Earth in km
+import addresses from './addresses.ts';
+
+interface Address {
+    name: string;
+    coords: [number, number];
+}
+
+function getDistance(
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+): number {
+    const R = 6371;
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
     const dLon = ((lon2 - lon1) * Math.PI) / 180;
     const a =
@@ -25,13 +32,19 @@ function getDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
     return R * c;
 }
 
-const LocationGuessingGame = () => {
-    const [currentAddress, setCurrentAddress] = useState(addresses[0]);
+const customIcon = new L.Icon({
+    iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+});
+
+const LocationGuessingGame: React.FC = () => {
+    const [currentAddress, setCurrentAddress] = useState<Address>(addresses[0]);
     const [guess, setGuess] = useState<[number, number] | null>(null);
     const [distance, setDistance] = useState<number | null>(null);
     const [scoreboard, setScoreboard] = useState<number[]>([]);
 
-    const handleMapClick = (e: any) => {
+    const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
         const { lat, lng } = e.latlng;
         setGuess([lat, lng]);
         const dist = getDistance(
@@ -47,9 +60,12 @@ const LocationGuessingGame = () => {
         setScoreboard([...scoreboard, distance ?? 0]);
         setDistance(null);
         setGuess(null);
-        setCurrentAddress(
-            addresses[Math.floor(Math.random() * addresses.length)]
-        );
+        const newAddress: Address =
+            addresses[Math.floor(Math.random() * addresses.length)];
+        setCurrentAddress({
+            name: newAddress.name,
+            coords: [newAddress.coords[0], newAddress.coords[1]],
+        });
     };
 
     return (
@@ -65,7 +81,13 @@ const LocationGuessingGame = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; OpenStreetMap contributors"
                 />
-                {guess && <Marker position={guess} />}
+                {guess && <Marker position={guess} icon={customIcon} />}
+                {distance !== null && (
+                    <Marker
+                        position={currentAddress.coords}
+                        icon={customIcon}
+                    />
+                )}
                 <MapClickHandler onClick={handleMapClick} />
             </MapContainer>
             {distance !== null && (
@@ -91,7 +113,9 @@ const LocationGuessingGame = () => {
     );
 };
 
-const MapClickHandler = ({ onClick }: { onClick: (e: any) => void }) => {
+const MapClickHandler: React.FC<{
+    onClick: (e: { latlng: { lat: number; lng: number } }) => void;
+}> = ({ onClick }) => {
     useMapEvents({
         click: onClick,
     });
