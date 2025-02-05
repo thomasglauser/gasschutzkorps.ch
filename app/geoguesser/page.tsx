@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { useMapEvents } from 'react-leaflet';
+import { useMapEvents } from 'react-leaflet'; // ✅ Import hook normally
 
 const MapContainer = dynamic(
     () =>
@@ -14,6 +14,10 @@ const TileLayer = dynamic(
 );
 const Marker = dynamic(
     () => import('react-leaflet').then((mod) => ({ default: mod.Marker })),
+    { ssr: false }
+);
+const Polyline = dynamic(
+    () => import('react-leaflet').then((mod) => ({ default: mod.Polyline })),
     { ssr: false }
 );
 
@@ -114,6 +118,13 @@ const LocationGuessingGame: React.FC = () => {
                     <Marker
                         position={currentAddress.coords}
                         icon={customIcon}
+                    />
+                )}
+                {customIcon && guess && distance !== null && (
+                    <Polyline
+                        positions={[guess, currentAddress.coords]}
+                        color="red"
+                        weight={3}
                     />
                 )}
                 <MapClickHandler onClick={handleMapClick} />
