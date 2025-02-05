@@ -60,6 +60,8 @@ const LocationGuessingGame: React.FC = () => {
     const [guessIcon, setGuessIcon] = useState<any>(null);
     const [locationIcon, setLocationIcon] = useState<any>(null);
     const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false);
+    const [timer, setTimer] = useState<number>(15);
+    const [isTimeUp, setIsTimeUp] = useState<boolean>(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -82,6 +84,25 @@ const LocationGuessingGame: React.FC = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (isGuessPlaced) return; // Stop countdown if a guess is made
+
+        const interval = setInterval(() => {
+            setTimer((prev) => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+                    setIsTimeUp(true); // Time is up
+                    setIsGuessPlaced(true); // Prevent guessing after time runs out
+                    setDistance(null); // No guess = 0 points
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [isGuessPlaced]);
+
     const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
         if (isGuessPlaced || !guessIcon || !locationIcon) return;
 
@@ -102,6 +123,9 @@ const LocationGuessingGame: React.FC = () => {
         setDistance(null);
         setGuess(null);
         setIsGuessPlaced(false);
+        setIsTimeUp(false);
+        setTimer(15); // Reset the timer
+
         const newAddress: Address =
             addresses[Math.floor(Math.random() * addresses.length)];
         setCurrentAddress({
@@ -109,7 +133,6 @@ const LocationGuessingGame: React.FC = () => {
             coords: [newAddress.coords[0], newAddress.coords[1]],
         });
     };
-
     const FitBoundsHandler: React.FC<{
         guess: [number, number] | null;
         destination: [number, number];
@@ -183,6 +206,19 @@ const LocationGuessingGame: React.FC = () => {
             >
                 Next Address
             </button>
+
+            <p className="mt-2 text-lg font-bold">
+                Time Left:{' '}
+                <span className={timer <= 5 ? 'text-red-500' : 'text-white'}>
+                    {timer}s
+                </span>
+            </p>
+
+            {isTimeUp && (
+                <p className="text-red-500">
+                    Time's up! You scored 0 points this round.
+                </p>
+            )}
 
             <h2 className="mt-4 text-lg font-bold">Scoreboard</h2>
             <ul>
