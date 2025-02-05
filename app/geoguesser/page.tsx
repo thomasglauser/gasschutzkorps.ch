@@ -161,111 +161,131 @@ const LocationGuessingGame: React.FC = () => {
     };
 
     return (
-        <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
-            <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
-                Guess the Location
-            </h1>
+        <section className="pb-[120px] pt-[150px]">
+            <div className="container">
+                <div className="-mx-4 flex flex-wrap justify-center">
+                    <div className="w-full px-4 lg:w-8/12">
+                        <div>
+                            <h2 className="mb-8 text-3xl font-bold leading-tight text-white sm:text-4xl sm:leading-tight">
+                                Geoguesser Zug Edition
+                            </h2>
+                            <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
+                                {/* Start Button */}
+                                {!hasStarted && !isTimeUp && (
+                                    <div className="flex justify-center mt-6">
+                                        <button
+                                            onClick={() => setHasStarted(true)}
+                                            className="px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
+                                        >
+                                            Start Round
+                                        </button>
+                                    </div>
+                                )}
 
-            <p className="text-lg text-gray-700 mb-4 text-center">
-                Find: <span className="font-bold">{currentAddress.name}</span>
-            </p>
+                                {hasStarted && (
+                                    <p className="text-lg text-gray-700 mb-4 text-center">
+                                        Find:{' '}
+                                        <span className="font-bold">
+                                            {currentAddress.name}
+                                        </span>
+                                    </p>
+                                )}
 
-            {/* Start Button */}
-            {!hasStarted && !isTimeUp && (
-                <div className="flex justify-center mt-6">
-                    <button
-                        onClick={() => setHasStarted(true)}
-                        className="px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
-                    >
-                        Start Round
-                    </button>
+                                {/* Timer */}
+                                {hasStarted && !isTimeUp && (
+                                    <div className="flex justify-center mt-4">
+                                        <span className="text-3xl font-semibold text-red-500">
+                                            {timer}s
+                                        </span>
+                                    </div>
+                                )}
+
+                                {/* Map Container */}
+                                <MapContainer
+                                    center={ZugCoordinates}
+                                    zoom={15}
+                                    className="h-96 w-full rounded-lg shadow-md mt-4"
+                                >
+                                    <TileLayer
+                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                        attribution="&copy; OpenStreetMap contributors"
+                                    />
+                                    {guessIcon && guess && (
+                                        <Marker
+                                            position={guess}
+                                            icon={guessIcon}
+                                        />
+                                    )}
+                                    {locationIcon && distance !== null && (
+                                        <Marker
+                                            position={currentAddress.coords}
+                                            icon={locationIcon}
+                                        />
+                                    )}
+                                    {guess && distance !== null && (
+                                        <Polyline
+                                            positions={[
+                                                guess,
+                                                currentAddress.coords,
+                                            ]}
+                                            color="red"
+                                            weight={3}
+                                        />
+                                    )}
+                                    <MapClickHandler onClick={handleMapClick} />
+                                </MapContainer>
+
+                                {/* Distance Information */}
+                                {distance !== null && (
+                                    <p className="mt-4 text-lg text-gray-800">
+                                        Your guess was{' '}
+                                        <span className="font-semibold text-red-500">
+                                            {distance.toFixed(2)} km
+                                        </span>{' '}
+                                        away!
+                                    </p>
+                                )}
+
+                                {/* Next Round Button */}
+                                <div className="flex justify-center mt-4">
+                                    <button
+                                        onClick={nextRound}
+                                        disabled={!isGuessPlaced && !isTimeUp}
+                                        className={`px-6 py-2 rounded-lg text-white font-semibold transition-all duration-300 ${
+                                            isGuessPlaced || isTimeUp
+                                                ? 'bg-blue-500 hover:bg-blue-600'
+                                                : 'bg-gray-400 cursor-not-allowed'
+                                        }`}
+                                    >
+                                        Next Address
+                                    </button>
+                                </div>
+
+                                {/* Scoreboard */}
+                                <div className="mt-6">
+                                    <h2 className="text-xl font-semibold text-gray-800">
+                                        Scoreboard
+                                    </h2>
+                                    <ul className="mt-2 space-y-2">
+                                        {scoreboard.map((score, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex justify-between text-lg text-gray-700"
+                                            >
+                                                <span>Round {index + 1}:</span>
+                                                <span className="font-semibold text-green-500">
+                                                    {score} points
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            )}
-
-            {/* Timer */}
-            {hasStarted && !isTimeUp && (
-                <div className="flex justify-center mt-4">
-                    <span className="text-3xl font-semibold text-red-500">
-                        {timer}s
-                    </span>
-                </div>
-            )}
-
-            {/* Map Container */}
-            <MapContainer
-                center={ZugCoordinates}
-                zoom={15}
-                className="h-96 w-full rounded-lg shadow-md mt-4"
-            >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="&copy; OpenStreetMap contributors"
-                />
-                {guessIcon && guess && (
-                    <Marker position={guess} icon={guessIcon} />
-                )}
-                {locationIcon && distance !== null && (
-                    <Marker
-                        position={currentAddress.coords}
-                        icon={locationIcon}
-                    />
-                )}
-                {guess && distance !== null && (
-                    <Polyline
-                        positions={[guess, currentAddress.coords]}
-                        color="red"
-                        weight={3}
-                    />
-                )}
-                <MapClickHandler onClick={handleMapClick} />
-            </MapContainer>
-
-            {/* Distance Information */}
-            {distance !== null && (
-                <p className="mt-4 text-lg text-gray-800">
-                    Your guess was{' '}
-                    <span className="font-semibold text-red-500">
-                        {distance.toFixed(2)} km
-                    </span>{' '}
-                    away!
-                </p>
-            )}
-
-            {/* Next Round Button */}
-            <div className="flex justify-center mt-4">
-                <button
-                    onClick={nextRound}
-                    disabled={!isGuessPlaced && !isTimeUp}
-                    className={`px-6 py-2 rounded-lg text-white font-semibold transition-all duration-300 ${
-                        isGuessPlaced || isTimeUp
-                            ? 'bg-blue-500 hover:bg-blue-600'
-                            : 'bg-gray-400 cursor-not-allowed'
-                    }`}
-                >
-                    Next Address
-                </button>
             </div>
-
-            {/* Scoreboard */}
-            <div className="mt-6">
-                <h2 className="text-xl font-semibold text-gray-800">
-                    Scoreboard
-                </h2>
-                <ul className="mt-2 space-y-2">
-                    {scoreboard.map((score, index) => (
-                        <li
-                            key={index}
-                            className="flex justify-between text-lg text-gray-700"
-                        >
-                            <span>Round {index + 1}:</span>
-                            <span className="font-semibold text-green-500">
-                                {score} points
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
+        </section>
     );
 };
 
