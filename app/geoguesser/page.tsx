@@ -128,6 +128,8 @@ const LocationGuessingGame: React.FC = () => {
         if (!isTimeUp && distance !== null) {
             roundScore = Math.max(0, Math.round(1000 - distance * 50));
         }
+        // TODO ADD REMAINING TIME TO CALCULATION
+        // ********************
 
         setScoreboard([...scoreboard, roundScore]);
         setDistance(null);
