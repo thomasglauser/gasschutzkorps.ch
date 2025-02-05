@@ -3,6 +3,7 @@ User-agent: *
 Allow: /
 Disallow: /legal
 Disallow: /imprint
+Disallow: /geoguesser
 
 # Host
 Host: https://gasschutzkorps.ch/
