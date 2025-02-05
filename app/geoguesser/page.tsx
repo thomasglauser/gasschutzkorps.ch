@@ -174,7 +174,12 @@ const LocationGuessingGame: React.FC = () => {
 
             <button
                 onClick={nextRound}
-                className="mt-4 p-2 bg-blue-500 text-white rounded"
+                className={`mt-4 p-2 rounded ${
+                    isGuessPlaced
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                }`}
+                disabled={!isGuessPlaced}
             >
                 Next Address
             </button>
