@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { useMapEvents } from 'react-leaflet';
+import { useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import addresses from './addresses';
@@ -110,6 +110,21 @@ const LocationGuessingGame: React.FC = () => {
         });
     };
 
+    const FitBoundsHandler: React.FC<{
+        guess: [number, number] | null;
+        destination: [number, number];
+    }> = ({ guess, destination }) => {
+        const map = useMap();
+
+        useEffect(() => {
+            if (guess && destination) {
+                map.fitBounds([guess, destination], { padding: [50, 50] });
+            }
+        }, [guess, destination, map]);
+
+        return null;
+    };
+
     return (
         <div className="p-4">
             <h1 className="text-xl font-bold mb-4">Guess the Location</h1>
@@ -123,6 +138,7 @@ const LocationGuessingGame: React.FC = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; OpenStreetMap contributors"
                 />
+
                 {guessIcon && guess && (
                     <Marker position={guess} icon={guessIcon} />
                 )}
@@ -139,6 +155,14 @@ const LocationGuessingGame: React.FC = () => {
                         weight={3}
                     />
                 )}
+
+                {guess && distance !== null && (
+                    <FitBoundsHandler
+                        guess={guess}
+                        destination={currentAddress.coords}
+                    />
+                )}
+
                 <MapClickHandler onClick={handleMapClick} />
             </MapContainer>
 
