@@ -122,15 +122,13 @@ const LocationGuessingGame: React.FC = () => {
                 />
                 {guessIcon && guess && (
                     <Marker position={guess} icon={guessIcon} />
-                )}{' '}
-                {/* 🟢 Guessed Location */}
+                )}
                 {locationIcon && distance !== null && (
                     <Marker
                         position={currentAddress.coords}
                         icon={locationIcon}
                     />
-                )}{' '}
-                {/* 🔴 Correct Location */}
+                )}
                 {guess && distance !== null && (
                     <Polyline
                         positions={[guess, currentAddress.coords]}
