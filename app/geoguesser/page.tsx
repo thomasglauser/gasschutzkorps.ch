@@ -1,7 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { useMapEvents } from 'react-leaflet'; // ✅ Import hook normally
+import { useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+
+import addresses from './addresses';
+import destinationImage from '/public/images/geoguesser/destination.png';
+import guessImage from '/public/images/geoguesser/guess.png';
 
 const MapContainer = dynamic(
     () =>
@@ -21,11 +26,7 @@ const Polyline = dynamic(
     { ssr: false }
 );
 
-import 'leaflet/dist/leaflet.css';
-
 const ZugCoordinates: [number, number] = [47.1662, 8.5155];
-
-import addresses from './addresses';
 
 interface Address {
     name: string;
@@ -56,24 +57,32 @@ const LocationGuessingGame: React.FC = () => {
     const [guess, setGuess] = useState<[number, number] | null>(null);
     const [distance, setDistance] = useState<number | null>(null);
     const [scoreboard, setScoreboard] = useState<number[]>([]);
-    const [customIcon, setCustomIcon] = useState<any>(null);
+    const [guessIcon, setGuessIcon] = useState<any>(null);
+    const [locationIcon, setLocationIcon] = useState<any>(null);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             import('leaflet').then((L) => {
-                const icon = new L.Icon({
-                    iconUrl:
-                        'https://cdn-icons-png.flaticon.com/128/684/684908.png',
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 32],
-                });
-                setCustomIcon(icon);
+                setGuessIcon(
+                    new L.Icon({
+                        iconUrl: guessImage.src,
+                        iconSize: [32, 32],
+                        iconAnchor: [16, 32],
+                    })
+                );
+                setLocationIcon(
+                    new L.Icon({
+                        iconUrl: destinationImage.src,
+                        iconSize: [32, 32],
+                        iconAnchor: [16, 32],
+                    })
+                );
             });
         }
     }, []);
 
     const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
-        if (!customIcon) return;
+        if (!guessIcon || !locationIcon) return;
 
         const { lat, lng } = e.latlng;
         setGuess([lat, lng]);
@@ -111,16 +120,18 @@ const LocationGuessingGame: React.FC = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; OpenStreetMap contributors"
                 />
-                {customIcon && guess && (
-                    <Marker position={guess} icon={customIcon} />
-                )}
-                {customIcon && distance !== null && (
+                {guessIcon && guess && (
+                    <Marker position={guess} icon={guessIcon} />
+                )}{' '}
+                {/* 🟢 Guessed Location */}
+                {locationIcon && distance !== null && (
                     <Marker
                         position={currentAddress.coords}
-                        icon={customIcon}
+                        icon={locationIcon}
                     />
-                )}
-                {customIcon && guess && distance !== null && (
+                )}{' '}
+                {/* 🔴 Correct Location */}
+                {guess && distance !== null && (
                     <Polyline
                         positions={[guess, currentAddress.coords]}
                         color="red"
@@ -129,17 +140,20 @@ const LocationGuessingGame: React.FC = () => {
                 )}
                 <MapClickHandler onClick={handleMapClick} />
             </MapContainer>
+
             {distance !== null && (
                 <p className="mt-2">
                     Your guess was {distance.toFixed(2)} km away!
                 </p>
             )}
+
             <button
                 onClick={nextRound}
                 className="mt-4 p-2 bg-blue-500 text-white rounded"
             >
                 Next Address
             </button>
+
             <h2 className="mt-4 text-lg font-bold">Scoreboard</h2>
             <ul>
                 {scoreboard.map((score, index) => (
