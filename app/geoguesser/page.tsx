@@ -59,6 +59,7 @@ const LocationGuessingGame: React.FC = () => {
     const [scoreboard, setScoreboard] = useState<number[]>([]);
     const [guessIcon, setGuessIcon] = useState<any>(null);
     const [locationIcon, setLocationIcon] = useState<any>(null);
+    const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -82,7 +83,7 @@ const LocationGuessingGame: React.FC = () => {
     }, []);
 
     const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
-        if (!guessIcon || !locationIcon) return;
+        if (isGuessPlaced || !guessIcon || !locationIcon) return;
 
         const { lat, lng } = e.latlng;
         setGuess([lat, lng]);
@@ -93,12 +94,14 @@ const LocationGuessingGame: React.FC = () => {
             currentAddress.coords[1]
         );
         setDistance(dist);
+        setIsGuessPlaced(true);
     };
 
     const nextRound = () => {
         setScoreboard([...scoreboard, distance ?? 0]);
         setDistance(null);
         setGuess(null);
+        setIsGuessPlaced(false);
         const newAddress: Address =
             addresses[Math.floor(Math.random() * addresses.length)];
         setCurrentAddress({
