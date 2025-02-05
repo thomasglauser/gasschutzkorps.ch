@@ -62,6 +62,7 @@ const LocationGuessingGame: React.FC = () => {
     const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false);
     const [timer, setTimer] = useState<number>(15);
     const [isTimeUp, setIsTimeUp] = useState<boolean>(false);
+    const [hasStarted, setHasStarted] = useState<boolean>(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -85,14 +86,17 @@ const LocationGuessingGame: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        if (isGuessPlaced) return; // Stop countdown if a guess is made
+        if (!hasStarted || isGuessPlaced) return; // Timer only runs when the game has started
+
+        setTimer(15); // Reset timer
+        setIsTimeUp(false); // Reset time-up flag
 
         const interval = setInterval(() => {
             setTimer((prev) => {
                 if (prev <= 1) {
                     clearInterval(interval);
                     setIsTimeUp(true); // Time is up
-                    setIsGuessPlaced(true); // Prevent guessing after time runs out
+                    setIsGuessPlaced(true); // Lock guessing
                     setDistance(null); // No guess = 0 points
                     return 0;
                 }
@@ -101,7 +105,7 @@ const LocationGuessingGame: React.FC = () => {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [isGuessPlaced]);
+    }, [hasStarted, isGuessPlaced]);
 
     const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
         if (isGuessPlaced || !guessIcon || !locationIcon) return;
@@ -124,7 +128,8 @@ const LocationGuessingGame: React.FC = () => {
         setGuess(null);
         setIsGuessPlaced(false);
         setIsTimeUp(false);
-        setTimer(15); // Reset the timer
+        setTimer(15);
+        setHasStarted(false); // Require the player to press start again
 
         const newAddress: Address =
             addresses[Math.floor(Math.random() * addresses.length)];
@@ -133,6 +138,7 @@ const LocationGuessingGame: React.FC = () => {
             coords: [newAddress.coords[0], newAddress.coords[1]],
         });
     };
+
     const FitBoundsHandler: React.FC<{
         guess: [number, number] | null;
         destination: [number, number];
@@ -151,7 +157,7 @@ const LocationGuessingGame: React.FC = () => {
     return (
         <div className="p-4">
             <h1 className="text-xl font-bold mb-4">Guess the Location</h1>
-            <p className="mb-2">Find: {currentAddress.name}</p>
+
             <MapContainer
                 center={ZugCoordinates}
                 zoom={15}
@@ -207,17 +213,33 @@ const LocationGuessingGame: React.FC = () => {
                 Next Address
             </button>
 
-            <p className="mt-2 text-lg font-bold">
-                Time Left:{' '}
-                <span className={timer <= 5 ? 'text-red-500' : 'text-white'}>
-                    {timer}s
-                </span>
-            </p>
+            {!hasStarted ? (
+                <button
+                    onClick={() => setHasStarted(true)}
+                    className="p-2 bg-green-500 text-white rounded"
+                >
+                    Start Round
+                </button>
+            ) : (
+                <>
+                    <p className="mb-2">Find: {currentAddress.name}</p>
+                    <p className="mt-2 text-lg font-bold">
+                        Time Left:{' '}
+                        <span
+                            className={
+                                timer <= 5 ? 'text-red-500' : 'text-white'
+                            }
+                        >
+                            {timer}s
+                        </span>
+                    </p>
 
-            {isTimeUp && (
-                <p className="text-red-500">
-                    Time's up! You scored 0 points this round.
-                </p>
+                    {isTimeUp && (
+                        <p className="text-red-500">
+                            Time's up! You scored 0 points this round.
+                        </p>
+                    )}
+                </>
             )}
 
             <h2 className="mt-4 text-lg font-bold">Scoreboard</h2>
