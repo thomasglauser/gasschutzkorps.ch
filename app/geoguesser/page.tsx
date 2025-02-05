@@ -161,19 +161,46 @@ const LocationGuessingGame: React.FC = () => {
     };
 
     return (
-        <div className="p-4">
-            <h1 className="text-xl font-bold mb-4">Guess the Location</h1>
+        <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
+            <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
+                Guess the Location
+            </h1>
 
+            <p className="text-lg text-gray-700 mb-4 text-center">
+                Find: <span className="font-bold">{currentAddress.name}</span>
+            </p>
+
+            {/* Start Button */}
+            {!hasStarted && !isTimeUp && (
+                <div className="flex justify-center mt-6">
+                    <button
+                        onClick={() => setHasStarted(true)}
+                        className="px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
+                    >
+                        Start Round
+                    </button>
+                </div>
+            )}
+
+            {/* Timer */}
+            {hasStarted && !isTimeUp && (
+                <div className="flex justify-center mt-4">
+                    <span className="text-3xl font-semibold text-red-500">
+                        {timer}s
+                    </span>
+                </div>
+            )}
+
+            {/* Map Container */}
             <MapContainer
                 center={ZugCoordinates}
                 zoom={15}
-                className="h-96 w-full"
+                className="h-96 w-full rounded-lg shadow-md mt-4"
             >
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; OpenStreetMap contributors"
                 />
-
                 {guessIcon && guess && (
                     <Marker position={guess} icon={guessIcon} />
                 )}
@@ -190,74 +217,54 @@ const LocationGuessingGame: React.FC = () => {
                         weight={3}
                     />
                 )}
-
-                {guess && distance !== null && (
-                    <FitBoundsHandler
-                        guess={guess}
-                        destination={currentAddress.coords}
-                    />
-                )}
-
                 <MapClickHandler onClick={handleMapClick} />
             </MapContainer>
 
+            {/* Distance Information */}
             {distance !== null && (
-                <p className="mt-2">
-                    Your guess was {distance.toFixed(2)} km away!
+                <p className="mt-4 text-lg text-gray-800">
+                    Your guess was{' '}
+                    <span className="font-semibold text-red-500">
+                        {distance.toFixed(2)} km
+                    </span>{' '}
+                    away!
                 </p>
             )}
 
-            <button
-                onClick={nextRound}
-                className={`mt-4 p-2 rounded ${
-                    isGuessPlaced
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                }`}
-                disabled={!isGuessPlaced}
-            >
-                Next Address
-            </button>
-
-            {!hasStarted ? (
+            {/* Next Round Button */}
+            <div className="flex justify-center mt-4">
                 <button
-                    onClick={() => setHasStarted(true)}
-                    className="p-2 bg-green-500 text-white rounded"
+                    onClick={nextRound}
+                    disabled={!isGuessPlaced && !isTimeUp}
+                    className={`px-6 py-2 rounded-lg text-white font-semibold transition-all duration-300 ${
+                        isGuessPlaced || isTimeUp
+                            ? 'bg-blue-500 hover:bg-blue-600'
+                            : 'bg-gray-400 cursor-not-allowed'
+                    }`}
                 >
-                    Start Round
+                    Next Address
                 </button>
-            ) : (
-                <>
-                    <p className="mb-2">Find: {currentAddress.name}</p>
-                    <p className="mt-2 text-lg font-bold">
-                        Time Left:{' '}
-                        <span
-                            className={
-                                timer <= 5 ? 'text-red-500' : 'text-white'
-                            }
+            </div>
+
+            {/* Scoreboard */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold text-gray-800">
+                    Scoreboard
+                </h2>
+                <ul className="mt-2 space-y-2">
+                    {scoreboard.map((score, index) => (
+                        <li
+                            key={index}
+                            className="flex justify-between text-lg text-gray-700"
                         >
-                            {timer}s
-                        </span>
-                    </p>
-
-                    {isTimeUp && (
-                        <p className="text-red-500">
-                            Time's up! You scored 0 points this round.
-                        </p>
-                    )}
-                </>
-            )}
-
-            <h2 className="mt-4 text-lg font-bold">Scoreboard</h2>
-            <ul>
-                {scoreboard.map((score, index) => (
-                    <li key={index}>
-                        Round {index + 1}:{' '}
-                        <span className="font-bold">{Math.round(score)}</span>{' '}
-                        points
-                    </li>
-                ))}
-            </ul>
+                            <span>Round {index + 1}:</span>
+                            <span className="font-semibold text-green-500">
+                                {score} points
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
