@@ -97,7 +97,7 @@ const LocationGuessingGame: React.FC = () => {
                     clearInterval(interval);
                     setIsTimeUp(true); // Time is up
                     setIsGuessPlaced(true); // Lock guessing
-                    setDistance(null); // No guess = 0 points
+                    setDistance(100); // No guess = 0 points
                     return 0;
                 }
                 return prev - 1;
@@ -123,13 +123,19 @@ const LocationGuessingGame: React.FC = () => {
     };
 
     const nextRound = () => {
-        setScoreboard([...scoreboard, distance ?? 0]);
+        let roundScore = 0;
+
+        if (!isTimeUp && distance !== null) {
+            roundScore = Math.max(0, Math.round(1000 - distance * 50));
+        }
+
+        setScoreboard([...scoreboard, roundScore]);
         setDistance(null);
         setGuess(null);
         setIsGuessPlaced(false);
         setIsTimeUp(false);
         setTimer(15);
-        setHasStarted(false); // Require the player to press start again
+        setHasStarted(false);
 
         const newAddress: Address =
             addresses[Math.floor(Math.random() * addresses.length)];
@@ -246,7 +252,9 @@ const LocationGuessingGame: React.FC = () => {
             <ul>
                 {scoreboard.map((score, index) => (
                     <li key={index}>
-                        Round {index + 1}: {score.toFixed(2)} km
+                        Round {index + 1}:{' '}
+                        <span className="font-bold">{Math.round(score)}</span>{' '}
+                        points
                     </li>
                 ))}
             </ul>
