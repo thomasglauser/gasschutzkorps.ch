@@ -64,6 +64,43 @@ const LocationGuessingGame: React.FC = () => {
     const [isTimeUp, setIsTimeUp] = useState<boolean>(false);
     const [hasStarted, setHasStarted] = useState<boolean>(false);
 
+    function getNewAddress() {
+        const newAddress: Address =
+            addresses[Math.floor(Math.random() * addresses.length)];
+        setCurrentAddress({
+            name: newAddress.name,
+            coords: [newAddress.coords[0], newAddress.coords[1]],
+        });
+
+        console.log('New address:', newAddress.name);
+    }
+
+    function calculateScore(distance: number, time: number): number {
+        const MAX_POINTS = 1000;
+        const MAX_DISTANCE = 10; // km
+        const MAX_TIME = 15; // seconds
+        const ALPHA = 2; // Distance penalty factor
+        const BETA = 1; // Time penalty factor
+
+        // Ensure distance and time are within bounds
+        const normalizedDistance = Math.min(
+            Math.max(distance, 0),
+            MAX_DISTANCE
+        );
+
+        let remainingTime = 15 - time;
+        const normalizedTime = Math.min(Math.max(remainingTime, 0), MAX_TIME);
+
+        // Calculate score
+        const distanceFactor = Math.pow(
+            1 - normalizedDistance / MAX_DISTANCE,
+            ALPHA
+        );
+        const timeFactor = Math.pow(1 - normalizedTime / MAX_TIME, BETA);
+
+        return Math.round(MAX_POINTS * distanceFactor * timeFactor);
+    }
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             import('leaflet').then((L) => {
@@ -84,17 +121,6 @@ const LocationGuessingGame: React.FC = () => {
             });
         }
     }, []);
-
-    function getNewAddress() {
-        const newAddress: Address =
-            addresses[Math.floor(Math.random() * addresses.length)];
-        setCurrentAddress({
-            name: newAddress.name,
-            coords: [newAddress.coords[0], newAddress.coords[1]],
-        });
-
-        console.log('New address:', newAddress.name);
-    }
 
     useEffect(() => {
         if (!hasStarted || isGuessPlaced) return; // Timer only runs when the game has started
@@ -133,7 +159,7 @@ const LocationGuessingGame: React.FC = () => {
         let roundScore = 0;
 
         if (!isTimeUp && dist !== null) {
-            roundScore = Math.max(0, Math.round(1000 - dist * 50));
+            roundScore = calculateScore(dist, timer);
         }
         // TODO ADD REMAINING TIME TO CALCULATION
         // ********************
@@ -252,7 +278,7 @@ const LocationGuessingGame: React.FC = () => {
                                 </MapContainer>
 
                                 {/* Distance Information */}
-                                {distance !== null && (
+                                {distance !== null && !isTimeUp && (
                                     <p className="mt-4 text-lg text-gray-800">
                                         Du warst{' '}
                                         <span className="font-semibold text-red-500">
