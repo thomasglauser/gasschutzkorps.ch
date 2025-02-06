@@ -92,6 +92,8 @@ const LocationGuessingGame: React.FC = () => {
             name: newAddress.name,
             coords: [newAddress.coords[0], newAddress.coords[1]],
         });
+
+        console.log('New address:', newAddress.name);
     }
 
     useEffect(() => {
@@ -99,8 +101,6 @@ const LocationGuessingGame: React.FC = () => {
 
         setTimer(15); // Reset timer
         setIsTimeUp(false); // Reset time-up flag
-
-        getNewAddress();
 
         const interval = setInterval(() => {
             setTimer((prev) => {
@@ -119,7 +119,7 @@ const LocationGuessingGame: React.FC = () => {
     }, [hasStarted, isGuessPlaced]);
 
     const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
-        if (isGuessPlaced || !guessIcon || !locationIcon) return;
+        if (isGuessPlaced || !hasStarted || !guessIcon || !locationIcon) return;
 
         const { lat, lng } = e.latlng;
         setGuess([lat, lng]);
@@ -129,8 +129,6 @@ const LocationGuessingGame: React.FC = () => {
             currentAddress.coords[0],
             currentAddress.coords[1]
         );
-        setDistance(dist);
-        setIsGuessPlaced(true);
 
         let roundScore = 0;
 
@@ -141,6 +139,9 @@ const LocationGuessingGame: React.FC = () => {
         // ********************
 
         setScoreboard([...scoreboard, roundScore]);
+        setDistance(dist);
+        setIsGuessPlaced(true);
+        setHasStarted(false);
     };
 
     const FitBoundsHandler: React.FC<{
@@ -159,20 +160,13 @@ const LocationGuessingGame: React.FC = () => {
     const toggleGameState = () => {
         if (!hasStarted) {
             console.log('started');
+            getNewAddress();
             setHasStarted(true);
             setDistance(null);
             setGuess(null);
             setIsGuessPlaced(false);
             setIsTimeUp(false);
             setTimer(15);
-        } else {
-            console.log('stopped');
-            setDistance(null);
-            setGuess(null);
-            setIsGuessPlaced(false);
-            setIsTimeUp(false);
-            setTimer(15);
-            setHasStarted(false);
         }
     };
 
@@ -260,11 +254,15 @@ const LocationGuessingGame: React.FC = () => {
                                 {/* Distance Information */}
                                 {distance !== null && (
                                     <p className="mt-4 text-lg text-gray-800">
-                                        Your guess was{' '}
+                                        Du warst{' '}
                                         <span className="font-semibold text-red-500">
                                             {distance.toFixed(2)} km
                                         </span>{' '}
-                                        away!
+                                        von{' '}
+                                        <span className="font-semibold text-red-500">
+                                            {currentAddress.name}
+                                        </span>{' '}
+                                        entfernt.
                                     </p>
                                 )}
 
