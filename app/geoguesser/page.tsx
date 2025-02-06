@@ -1,13 +1,17 @@
 'use client';
+
+// Import necessary dependencies from React and Next.js
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
+// Import address data and images for the game
 import addresses from './addresses';
 import destinationImage from '/public/images/geoguesser/destination.png';
 import guessImage from '/public/images/geoguesser/guess.png';
 
+// Dynamically import Leaflet components to avoid SSR issues in Next.js
 const MapContainer = dynamic(
     () =>
         import('react-leaflet').then((mod) => ({ default: mod.MapContainer })),
@@ -26,20 +30,23 @@ const Polyline = dynamic(
     { ssr: false }
 );
 
+// Default map coordinates for Zug, Switzerland
 const ZugCoordinates: [number, number] = [47.1662, 8.5155];
 
+// Define the address structure
 interface Address {
     name: string;
     coords: [number, number];
 }
 
+// Function to calculate the distance between two geographical points using the Haversine formula
 function getDistance(
     lat1: number,
     lon1: number,
     lat2: number,
     lon2: number
 ): number {
-    const R = 6371;
+    const R = 6371; // Radius of the Earth in km
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
     const dLon = ((lon2 - lon1) * Math.PI) / 180;
     const a =
@@ -53,17 +60,19 @@ function getDistance(
 }
 
 const LocationGuessingGame: React.FC = () => {
-    const [currentAddress, setCurrentAddress] = useState<Address>(addresses[0]);
-    const [guess, setGuess] = useState<[number, number] | null>(null);
-    const [distance, setDistance] = useState<number | null>(null);
-    const [scoreboard, setScoreboard] = useState<number[]>([]);
-    const [guessIcon, setGuessIcon] = useState<any>(null);
-    const [locationIcon, setLocationIcon] = useState<any>(null);
-    const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false);
-    const [timer, setTimer] = useState<number>(15);
-    const [isTimeUp, setIsTimeUp] = useState<boolean>(false);
-    const [hasStarted, setHasStarted] = useState<boolean>(false);
+    // State variables for game logic
+    const [currentAddress, setCurrentAddress] = useState<Address>(addresses[0]); // Current location to guess
+    const [guess, setGuess] = useState<[number, number] | null>(null); // User's guess
+    const [distance, setDistance] = useState<number | null>(null); // Distance between guess and actual location
+    const [scoreboard, setScoreboard] = useState<number[]>([]); // Stores scores for rounds
+    const [guessIcon, setGuessIcon] = useState<any>(null); // Custom icon for guess marker
+    const [locationIcon, setLocationIcon] = useState<any>(null); // Custom icon for actual location marker
+    const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false); // Flag to track if a guess has been placed
+    const [timer, setTimer] = useState<number>(15); // Countdown timer for guessing
+    const [isTimeUp, setIsTimeUp] = useState<boolean>(false); // Flag to indicate when time runs out
+    const [hasStarted, setHasStarted] = useState<boolean>(false); // Flag to indicate if the game has started
 
+    // Function to select a new random address for the next round
     function getNewAddress() {
         const newAddress: Address =
             addresses[Math.floor(Math.random() * addresses.length)];
@@ -73,14 +82,15 @@ const LocationGuessingGame: React.FC = () => {
         });
     }
 
+    // Function to calculate score based on distance and time
     function calculateScore(distance: number, time: number): number {
         const MAX_POINTS = 1000;
-        const MAX_DISTANCE = 10; // km
-        const MAX_TIME = 15; // seconds
+        const MAX_DISTANCE = 10; // Max distance in km
+        const MAX_TIME = 15; // Max time in seconds
         const ALPHA = 2; // Distance penalty factor
         const BETA = 1; // Time penalty factor
 
-        // Ensure distance and time are within bounds
+        // Ensure values are within limits
         const normalizedDistance = Math.min(
             Math.max(distance, 0),
             MAX_DISTANCE
@@ -89,7 +99,7 @@ const LocationGuessingGame: React.FC = () => {
         let remainingTime = 15 - time;
         const normalizedTime = Math.min(Math.max(remainingTime, 0), MAX_TIME);
 
-        // Calculate score
+        // Compute score based on distance and time penalties
         const distanceFactor = Math.pow(
             1 - normalizedDistance / MAX_DISTANCE,
             ALPHA
@@ -99,6 +109,7 @@ const LocationGuessingGame: React.FC = () => {
         return Math.round(MAX_POINTS * distanceFactor * timeFactor);
     }
 
+    // Load custom icons when the component mounts
     useEffect(() => {
         if (typeof window !== 'undefined') {
             import('leaflet').then((L) => {
@@ -120,19 +131,20 @@ const LocationGuessingGame: React.FC = () => {
         }
     }, []);
 
+    // Timer logic to count down when the game starts
     useEffect(() => {
-        if (!hasStarted || isGuessPlaced) return; // Timer only runs when the game has started
+        if (!hasStarted || isGuessPlaced) return;
 
-        setTimer(15); // Reset timer
-        setIsTimeUp(false); // Reset time-up flag
+        setTimer(15);
+        setIsTimeUp(false);
 
         const interval = setInterval(() => {
             setTimer((prev) => {
                 if (prev <= 1) {
                     clearInterval(interval);
-                    setIsTimeUp(true); // Time is up
-                    setIsGuessPlaced(true); // Lock guessing
-                    setHasStarted(false); // Stop the game
+                    setIsTimeUp(true);
+                    setIsGuessPlaced(true);
+                    setHasStarted(false);
                     setScoreboard([...scoreboard, 0]);
                     return 0;
                 }
@@ -143,6 +155,7 @@ const LocationGuessingGame: React.FC = () => {
         return () => clearInterval(interval);
     }, [hasStarted, isGuessPlaced]);
 
+    // Handle user clicking on the map to place a guess
     const handleMapClick = (e: { latlng: { lat: number; lng: number } }) => {
         if (isGuessPlaced || !hasStarted || !guessIcon || !locationIcon) return;
 
