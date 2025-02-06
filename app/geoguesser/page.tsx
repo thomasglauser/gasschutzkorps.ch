@@ -218,7 +218,7 @@ const LocationGuessingGame: React.FC = () => {
     };
 
     return (
-        <section className="pb-20 pt-24">
+        <section className="pb-[120px] pt-[150px]">
             <div className="container px-4 mx-auto">
                 <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-8/12">
@@ -264,6 +264,7 @@ const LocationGuessingGame: React.FC = () => {
                                         center={ZugCoordinates}
                                         zoom={15}
                                         className="h-full w-full"
+                                        style={{ zIndex: 0 }}
                                     >
                                         <TileLayer
                                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
