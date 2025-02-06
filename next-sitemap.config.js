@@ -2,13 +2,13 @@
 module.exports = {
     siteUrl: 'https://gasschutzkorps.ch/',
     generateRobotsTxt: true,
-    exclude: ['/legal', '/imprint'],
+    exclude: ['/legal', '/imprint', '/geoguesser'],
     robotsTxtOptions: {
         policies: [
             {
                 userAgent: '*',
                 allow: '/',
-                disallow: ['/legal', '/imprint'],
+                disallow: ['/legal', '/imprint', '/geoguesser'],
             },
         ],
     },

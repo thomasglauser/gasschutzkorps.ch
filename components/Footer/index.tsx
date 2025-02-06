@@ -95,10 +95,10 @@ const Footer = () => {
                     </div>
 
                     <div className="h-px w-full bg-linear-to-r from-transparent to-transparent via-[#959CB183]"></div>
-                    <div className="py-8">
-                        <p className="text-center text-base text-white">
+                    <div className="py-8 text-center text-base text-white">
+                        <Link href="geoguesser">
                             Sichern, Retten, Halten, Schützen, Bewältigen
-                        </p>
+                        </Link>
                     </div>
                 </div>
             </footer>
