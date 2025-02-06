@@ -203,14 +203,16 @@ const LocationGuessingGame: React.FC = () => {
                             </h2>
                             <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
                                 {/* Start Button */}
-                                <div className="flex justify-center mt-6">
-                                    <button
-                                        onClick={toggleGameState}
-                                        className="px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
-                                    >
-                                        Start
-                                    </button>
-                                </div>
+                                {!hasStarted && (
+                                    <div className="flex justify-center">
+                                        <button
+                                            onClick={toggleGameState}
+                                            className="my-6 px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
+                                        >
+                                            Start
+                                        </button>
+                                    </div>
+                                )}
 
                                 {/* Address */}
                                 {hasStarted && (
