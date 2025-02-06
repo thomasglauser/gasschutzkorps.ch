@@ -345,6 +345,18 @@ const LocationGuessingGame: React.FC = () => {
                                                 </li>
                                             ))}
                                         </ul>
+                                        {/* Total Score */}
+                                        <div className="mt-4 text-lg font-semibold text-gray-900">
+                                            Gesamtpunktzahl:{' '}
+                                            <span className="text-green-600">
+                                                {scoreboard.reduce(
+                                                    (total, entry) =>
+                                                        total + entry.score,
+                                                    0
+                                                )}{' '}
+                                                Punkte
+                                            </span>
+                                        </div>
                                     </ul>
                                 </div>
                             </div>
