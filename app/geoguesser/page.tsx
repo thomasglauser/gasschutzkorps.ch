@@ -71,8 +71,6 @@ const LocationGuessingGame: React.FC = () => {
             name: newAddress.name,
             coords: [newAddress.coords[0], newAddress.coords[1]],
         });
-
-        console.log('New address:', newAddress.name);
     }
 
     function calculateScore(distance: number, time: number): number {
@@ -134,7 +132,8 @@ const LocationGuessingGame: React.FC = () => {
                     clearInterval(interval);
                     setIsTimeUp(true); // Time is up
                     setIsGuessPlaced(true); // Lock guessing
-                    setDistance(100); // No guess = 0 points
+                    setHasStarted(false); // Stop the game
+                    setScoreboard([...scoreboard, 0]);
                     return 0;
                 }
                 return prev - 1;
@@ -161,8 +160,6 @@ const LocationGuessingGame: React.FC = () => {
         if (!isTimeUp && dist !== null) {
             roundScore = calculateScore(dist, timer);
         }
-        // TODO ADD REMAINING TIME TO CALCULATION
-        // ********************
 
         setScoreboard([...scoreboard, roundScore]);
         setDistance(dist);
@@ -185,7 +182,6 @@ const LocationGuessingGame: React.FC = () => {
 
     const toggleGameState = () => {
         if (!hasStarted) {
-            console.log('started');
             getNewAddress();
             setHasStarted(true);
             setDistance(null);
@@ -216,9 +212,10 @@ const LocationGuessingGame: React.FC = () => {
                                     </button>
                                 </div>
 
+                                {/* Address */}
                                 {hasStarted && (
                                     <p className="text-lg text-gray-700 mb-4 text-center">
-                                        Find:{' '}
+                                        Gesucht:{' '}
                                         <span className="font-bold">
                                             {currentAddress.name}
                                         </span>
@@ -292,6 +289,13 @@ const LocationGuessingGame: React.FC = () => {
                                     </p>
                                 )}
 
+                                {/* Time is up message */}
+                                {isTimeUp && (
+                                    <p className="mt-4 text-lg font-semibold text-red-500">
+                                        Die Zeit ist leider abgelaufen!
+                                    </p>
+                                )}
+
                                 {/* Scoreboard */}
                                 <div className="mt-6">
                                     <h2 className="text-xl font-semibold text-gray-800">
@@ -303,9 +307,9 @@ const LocationGuessingGame: React.FC = () => {
                                                 key={index}
                                                 className="flex justify-between text-lg text-gray-700"
                                             >
-                                                <span>Round {index + 1}:</span>
+                                                <span>Runde {index + 1}:</span>
                                                 <span className="font-semibold text-green-500">
-                                                    {score} points
+                                                    {score} Punkte
                                                 </span>
                                             </li>
                                         ))}
