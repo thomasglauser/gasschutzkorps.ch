@@ -2,6 +2,7 @@
 
 // Import necessary dependencies from React and Next.js
 import React, { useState, useEffect } from 'react';
+import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -215,6 +216,15 @@ const LocationGuessingGame: React.FC = () => {
             setIsTimeUp(false);
             setTimer(10);
         }
+    };
+
+    export const metadata: Metadata = {
+        title: 'Gasschutzkorps.ch | Geoguesser Zug Edition',
+        description: 'Gasschutzkorps der Freiwilligen Feuerwehr der Stadt Zug.',
+        robots: {
+            index: false,
+            follow: false,
+        },
     };
 
     return (
