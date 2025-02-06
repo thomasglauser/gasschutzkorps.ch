@@ -74,7 +74,7 @@ const LocationGuessingGame: React.FC = () => {
     const [guessIcon, setGuessIcon] = useState<any>(null); // Custom icon for guess marker
     const [locationIcon, setLocationIcon] = useState<any>(null); // Custom icon for actual location marker
     const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false); // Flag to track if a guess has been placed
-    const [timer, setTimer] = useState<number>(15); // Countdown timer for guessing
+    const [timer, setTimer] = useState<number>(10); // Countdown timer for guessing
     const [isTimeUp, setIsTimeUp] = useState<boolean>(false); // Flag to indicate when time runs out
     const [hasStarted, setHasStarted] = useState<boolean>(false); // Flag to indicate if the game has started
 
@@ -92,7 +92,7 @@ const LocationGuessingGame: React.FC = () => {
     function calculateScore(distance: number, time: number): number {
         const MAX_POINTS = 1000;
         const MAX_DISTANCE = 10; // Max distance in km
-        const MAX_TIME = 15; // Max time in seconds
+        const MAX_TIME = 10; // Max time in seconds
         const ALPHA = 2; // Distance penalty factor
         const BETA = 1; // Time penalty factor
 
@@ -102,7 +102,7 @@ const LocationGuessingGame: React.FC = () => {
             MAX_DISTANCE
         );
 
-        let remainingTime = 15 - time;
+        let remainingTime = 10 - time;
         const normalizedTime = Math.min(Math.max(remainingTime, 0), MAX_TIME);
 
         // Compute score based on distance and time penalties
@@ -141,7 +141,7 @@ const LocationGuessingGame: React.FC = () => {
     useEffect(() => {
         if (!hasStarted || isGuessPlaced) return;
 
-        setTimer(15);
+        setTimer(10);
         setIsTimeUp(false);
 
         const interval = setInterval(() => {
@@ -213,7 +213,7 @@ const LocationGuessingGame: React.FC = () => {
             setGuess(null);
             setIsGuessPlaced(false);
             setIsTimeUp(false);
-            setTimer(15);
+            setTimer(10);
         }
     };
 
