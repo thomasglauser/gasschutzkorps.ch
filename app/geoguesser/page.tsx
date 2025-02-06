@@ -39,6 +39,12 @@ interface Address {
     coords: [number, number];
 }
 
+// Define the scoreboard entry structure
+interface ScoreEntry {
+    address: string;
+    score: number;
+}
+
 // Function to calculate the distance between two geographical points using the Haversine formula
 function getDistance(
     lat1: number,
@@ -64,7 +70,7 @@ const LocationGuessingGame: React.FC = () => {
     const [currentAddress, setCurrentAddress] = useState<Address>(addresses[0]); // Current location to guess
     const [guess, setGuess] = useState<[number, number] | null>(null); // User's guess
     const [distance, setDistance] = useState<number | null>(null); // Distance between guess and actual location
-    const [scoreboard, setScoreboard] = useState<number[]>([]); // Stores scores for rounds
+    const [scoreboard, setScoreboard] = useState<ScoreEntry[]>([]); // Stores scores along with addresses
     const [guessIcon, setGuessIcon] = useState<any>(null); // Custom icon for guess marker
     const [locationIcon, setLocationIcon] = useState<any>(null); // Custom icon for actual location marker
     const [isGuessPlaced, setIsGuessPlaced] = useState<boolean>(false); // Flag to track if a guess has been placed
@@ -145,7 +151,10 @@ const LocationGuessingGame: React.FC = () => {
                     setIsTimeUp(true);
                     setIsGuessPlaced(true);
                     setHasStarted(false);
-                    setScoreboard([...scoreboard, 0]);
+                    setScoreboard([
+                        ...scoreboard,
+                        { address: 'Zeit abgelaufen', score: 0 },
+                    ]);
                     return 0;
                 }
                 return prev - 1;
@@ -174,7 +183,10 @@ const LocationGuessingGame: React.FC = () => {
             roundScore = calculateScore(dist, timer);
         }
 
-        setScoreboard([...scoreboard, roundScore]);
+        setScoreboard([
+            ...scoreboard,
+            { address: currentAddress.name, score: roundScore },
+        ]);
         setDistance(dist);
         setIsGuessPlaced(true);
         setHasStarted(false);
@@ -317,17 +329,22 @@ const LocationGuessingGame: React.FC = () => {
                                         Scoreboard
                                     </h2>
                                     <ul className="mt-2 space-y-2">
-                                        {scoreboard.map((score, index) => (
-                                            <li
-                                                key={index}
-                                                className="flex justify-between text-lg text-gray-700"
-                                            >
-                                                <span>Runde {index + 1}:</span>
-                                                <span className="font-semibold text-green-500">
-                                                    {score} Punkte
-                                                </span>
-                                            </li>
-                                        ))}
+                                        <ul className="mt-2 space-y-2">
+                                            {scoreboard.map((entry, index) => (
+                                                <li
+                                                    key={index}
+                                                    className="flex justify-between text-lg text-gray-700"
+                                                >
+                                                    <span>
+                                                        Runde {index + 1}:{' '}
+                                                        {entry.address}
+                                                    </span>
+                                                    <span className="font-semibold text-green-500">
+                                                        {entry.score} Punkte
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </ul>
                                 </div>
                             </div>
