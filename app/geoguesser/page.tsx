@@ -85,11 +85,22 @@ const LocationGuessingGame: React.FC = () => {
         }
     }, []);
 
+    function getNewAddress() {
+        const newAddress: Address =
+            addresses[Math.floor(Math.random() * addresses.length)];
+        setCurrentAddress({
+            name: newAddress.name,
+            coords: [newAddress.coords[0], newAddress.coords[1]],
+        });
+    }
+
     useEffect(() => {
         if (!hasStarted || isGuessPlaced) return; // Timer only runs when the game has started
 
         setTimer(15); // Reset timer
         setIsTimeUp(false); // Reset time-up flag
+
+        getNewAddress();
 
         const interval = setInterval(() => {
             setTimer((prev) => {
@@ -120,31 +131,16 @@ const LocationGuessingGame: React.FC = () => {
         );
         setDistance(dist);
         setIsGuessPlaced(true);
-    };
 
-    const nextRound = () => {
         let roundScore = 0;
 
-        if (!isTimeUp && distance !== null) {
-            roundScore = Math.max(0, Math.round(1000 - distance * 50));
+        if (!isTimeUp && dist !== null) {
+            roundScore = Math.max(0, Math.round(1000 - dist * 50));
         }
         // TODO ADD REMAINING TIME TO CALCULATION
         // ********************
 
         setScoreboard([...scoreboard, roundScore]);
-        setDistance(null);
-        setGuess(null);
-        setIsGuessPlaced(false);
-        setIsTimeUp(false);
-        setTimer(15);
-        setHasStarted(false);
-
-        const newAddress: Address =
-            addresses[Math.floor(Math.random() * addresses.length)];
-        setCurrentAddress({
-            name: newAddress.name,
-            coords: [newAddress.coords[0], newAddress.coords[1]],
-        });
     };
 
     const FitBoundsHandler: React.FC<{
@@ -152,14 +148,32 @@ const LocationGuessingGame: React.FC = () => {
         destination: [number, number];
     }> = ({ guess, destination }) => {
         const map = useMap();
-
         useEffect(() => {
             if (guess && destination) {
                 map.fitBounds([guess, destination], { padding: [50, 50] });
             }
         }, [guess, destination, map]);
-
         return null;
+    };
+
+    const toggleGameState = () => {
+        if (!hasStarted) {
+            console.log('started');
+            setHasStarted(true);
+            setDistance(null);
+            setGuess(null);
+            setIsGuessPlaced(false);
+            setIsTimeUp(false);
+            setTimer(15);
+        } else {
+            console.log('stopped');
+            setDistance(null);
+            setGuess(null);
+            setIsGuessPlaced(false);
+            setIsTimeUp(false);
+            setTimer(15);
+            setHasStarted(false);
+        }
     };
 
     return (
@@ -173,16 +187,14 @@ const LocationGuessingGame: React.FC = () => {
                             </h2>
                             <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
                                 {/* Start Button */}
-                                {!hasStarted && !isTimeUp && (
-                                    <div className="flex justify-center mt-6">
-                                        <button
-                                            onClick={() => setHasStarted(true)}
-                                            className="px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
-                                        >
-                                            Start Round
-                                        </button>
-                                    </div>
-                                )}
+                                <div className="flex justify-center mt-6">
+                                    <button
+                                        onClick={toggleGameState}
+                                        className="px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
+                                    >
+                                        Start
+                                    </button>
+                                </div>
 
                                 {hasStarted && (
                                     <p className="text-lg text-gray-700 mb-4 text-center">
@@ -234,6 +246,14 @@ const LocationGuessingGame: React.FC = () => {
                                             weight={3}
                                         />
                                     )}
+
+                                    {guess && distance !== null && (
+                                        <FitBoundsHandler
+                                            guess={guess}
+                                            destination={currentAddress.coords}
+                                        />
+                                    )}
+
                                     <MapClickHandler onClick={handleMapClick} />
                                 </MapContainer>
 
@@ -247,21 +267,6 @@ const LocationGuessingGame: React.FC = () => {
                                         away!
                                     </p>
                                 )}
-
-                                {/* Next Round Button */}
-                                <div className="flex justify-center mt-4">
-                                    <button
-                                        onClick={nextRound}
-                                        disabled={!isGuessPlaced && !isTimeUp}
-                                        className={`px-6 py-2 rounded-lg text-white font-semibold transition-all duration-300 ${
-                                            isGuessPlaced || isTimeUp
-                                                ? 'bg-blue-500 hover:bg-blue-600'
-                                                : 'bg-gray-400 cursor-not-allowed'
-                                        }`}
-                                    >
-                                        Next Address
-                                    </button>
-                                </div>
 
                                 {/* Scoreboard */}
                                 <div className="mt-6">
