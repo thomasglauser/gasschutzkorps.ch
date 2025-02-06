@@ -218,21 +218,21 @@ const LocationGuessingGame: React.FC = () => {
     };
 
     return (
-        <section className="pb-[120px] pt-[150px]">
-            <div className="container">
-                <div className="-mx-4 flex flex-wrap justify-center">
-                    <div className="w-full px-4 lg:w-8/12">
+        <section className="pb-20 pt-24">
+            <div className="container px-4 mx-auto">
+                <div className="flex flex-wrap justify-center">
+                    <div className="w-full lg:w-8/12">
                         <div>
-                            <h2 className="mb-8 text-3xl font-bold leading-tight text-white sm:text-4xl sm:leading-tight">
+                            <h2 className="mb-6 text-2xl font-bold leading-tight text-white sm:text-3xl sm:leading-tight text-center">
                                 Geoguesser Zug Edition
                             </h2>
-                            <div className="p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
+                            <div className="p-4 sm:p-6 max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
                                 {/* Start Button */}
                                 {!hasStarted && (
                                     <div className="flex justify-center">
                                         <button
                                             onClick={toggleGameState}
-                                            className="my-6 px-6 py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
+                                            className="my-4 px-4 py-2 sm:px-6 sm:py-2 rounded-lg text-white font-semibold bg-green-500 hover:bg-green-600 transition-all duration-300"
                                         >
                                             Start
                                         </button>
@@ -241,7 +241,7 @@ const LocationGuessingGame: React.FC = () => {
 
                                 {/* Address */}
                                 {hasStarted && (
-                                    <p className="text-lg text-gray-700 mb-4 text-center">
+                                    <p className="text-base sm:text-lg text-gray-700 mb-4 text-center">
                                         Gesucht:{' '}
                                         <span className="font-bold">
                                             {currentAddress.name}
@@ -252,58 +252,62 @@ const LocationGuessingGame: React.FC = () => {
                                 {/* Timer */}
                                 {hasStarted && !isTimeUp && (
                                     <div className="flex justify-center mt-4">
-                                        <span className="text-3xl font-semibold text-red-500">
+                                        <span className="text-2xl sm:text-3xl font-semibold text-red-500">
                                             {timer}s
                                         </span>
                                     </div>
                                 )}
 
                                 {/* Map Container */}
-                                <MapContainer
-                                    center={ZugCoordinates}
-                                    zoom={15}
-                                    className="h-96 w-full rounded-lg shadow-md mt-4"
-                                >
-                                    <TileLayer
-                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                        attribution="&copy; OpenStreetMap contributors"
-                                    />
-                                    {guessIcon && guess && (
-                                        <Marker
-                                            position={guess}
-                                            icon={guessIcon}
+                                <div className="h-72 sm:h-96 w-full rounded-lg shadow-md mt-4 overflow-hidden">
+                                    <MapContainer
+                                        center={ZugCoordinates}
+                                        zoom={15}
+                                        className="h-full w-full"
+                                    >
+                                        <TileLayer
+                                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                            attribution="&copy; OpenStreetMap contributors"
                                         />
-                                    )}
-                                    {locationIcon && distance !== null && (
-                                        <Marker
-                                            position={currentAddress.coords}
-                                            icon={locationIcon}
+                                        {guessIcon && guess && (
+                                            <Marker
+                                                position={guess}
+                                                icon={guessIcon}
+                                            />
+                                        )}
+                                        {locationIcon && distance !== null && (
+                                            <Marker
+                                                position={currentAddress.coords}
+                                                icon={locationIcon}
+                                            />
+                                        )}
+                                        {guess && distance !== null && (
+                                            <Polyline
+                                                positions={[
+                                                    guess,
+                                                    currentAddress.coords,
+                                                ]}
+                                                color="red"
+                                                weight={3}
+                                            />
+                                        )}
+                                        {guess && distance !== null && (
+                                            <FitBoundsHandler
+                                                guess={guess}
+                                                destination={
+                                                    currentAddress.coords
+                                                }
+                                            />
+                                        )}
+                                        <MapClickHandler
+                                            onClick={handleMapClick}
                                         />
-                                    )}
-                                    {guess && distance !== null && (
-                                        <Polyline
-                                            positions={[
-                                                guess,
-                                                currentAddress.coords,
-                                            ]}
-                                            color="red"
-                                            weight={3}
-                                        />
-                                    )}
-
-                                    {guess && distance !== null && (
-                                        <FitBoundsHandler
-                                            guess={guess}
-                                            destination={currentAddress.coords}
-                                        />
-                                    )}
-
-                                    <MapClickHandler onClick={handleMapClick} />
-                                </MapContainer>
+                                    </MapContainer>
+                                </div>
 
                                 {/* Distance Information */}
                                 {distance !== null && !isTimeUp && (
-                                    <p className="mt-4 text-lg text-gray-800">
+                                    <p className="mt-4 text-base sm:text-lg text-gray-800 text-center">
                                         Du warst{' '}
                                         <span className="font-semibold text-red-500">
                                             {distance.toFixed(2)} km
@@ -318,46 +322,44 @@ const LocationGuessingGame: React.FC = () => {
 
                                 {/* Time is up message */}
                                 {isTimeUp && (
-                                    <p className="mt-4 text-lg font-semibold text-red-500">
+                                    <p className="mt-4 text-base sm:text-lg font-semibold text-red-500 text-center">
                                         Die Zeit ist leider abgelaufen!
                                     </p>
                                 )}
 
                                 {/* Scoreboard */}
                                 <div className="mt-6">
-                                    <h2 className="text-xl font-semibold text-gray-800">
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-800 text-center">
                                         Scoreboard
                                     </h2>
-                                    <ul className="mt-2 space-y-2">
-                                        <ul className="mt-2 space-y-2">
-                                            {scoreboard.map((entry, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="flex justify-between text-lg text-gray-700"
-                                                >
-                                                    <span>
-                                                        Runde {index + 1}:{' '}
-                                                        {entry.address}
-                                                    </span>
-                                                    <span className="font-semibold text-green-500">
-                                                        {entry.score} Punkte
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                        {/* Total Score */}
-                                        <div className="mt-4 text-lg font-semibold text-gray-900">
-                                            Gesamtpunktzahl:{' '}
-                                            <span className="text-green-600">
-                                                {scoreboard.reduce(
-                                                    (total, entry) =>
-                                                        total + entry.score,
-                                                    0
-                                                )}{' '}
-                                                Punkte
-                                            </span>
-                                        </div>
+                                    <ul className="mt-2 space-y-2 text-center">
+                                        {scoreboard.map((entry, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex justify-between text-base sm:text-lg text-gray-700 px-2"
+                                            >
+                                                <span>
+                                                    Runde {index + 1}:{' '}
+                                                    {entry.address}
+                                                </span>
+                                                <span className="font-semibold text-green-500">
+                                                    {entry.score} Punkte
+                                                </span>
+                                            </li>
+                                        ))}
                                     </ul>
+                                    {/* Total Score */}
+                                    <div className="mt-4 text-base sm:text-lg font-semibold text-gray-900 text-center">
+                                        Gesamtpunktzahl:{' '}
+                                        <span className="text-green-600">
+                                            {scoreboard.reduce(
+                                                (total, entry) =>
+                                                    total + entry.score,
+                                                0
+                                            )}{' '}
+                                            Punkte
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
