@@ -39,6 +39,9 @@ interface Address {
     coords: [number, number];
 }
 
+// Store the remaining addresses so no duplicates are pulled
+let remainingAddresses: Address[] = [];
+
 // Define the scoreboard entry structure
 interface ScoreEntry {
     address: string;
@@ -82,8 +85,15 @@ const LocationGuessingGame: React.FC = () => {
 
     // Function to select a new random address for the next round
     function getNewAddress() {
-        const newAddress: Address =
-            addresses[Math.floor(Math.random() * addresses.length)];
+        if (remainingAddresses.length === 0) {
+            remainingAddresses = [...addresses];
+        }
+
+        const randomIndex = Math.floor(
+            Math.random() * remainingAddresses.length
+        );
+        const [newAddress] = remainingAddresses.splice(randomIndex, 1);
+
         setCurrentAddress({
             name: newAddress.name,
             coords: [newAddress.coords[0], newAddress.coords[1]],
