@@ -1,7 +1,7 @@
 'use client';
 
 // Import necessary dependencies from React and Next.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -31,7 +31,7 @@ const Polyline = dynamic(
 );
 
 // Default map coordinates for Zug, Switzerland
-const ZugCoordinates: [number, number] = [47.1662, 8.5155];
+const ZugCoordinates: [number, number] = [47.174025, 8.515456];
 
 // Define the address structure
 interface Address {
@@ -77,6 +77,8 @@ const LocationGuessingGame: React.FC = () => {
     const [timer, setTimer] = useState<number>(10); // Countdown timer for guessing
     const [isTimeUp, setIsTimeUp] = useState<boolean>(false); // Flag to indicate when time runs out
     const [hasStarted, setHasStarted] = useState<boolean>(false); // Flag to indicate if the game has started
+
+    const mapRef = useRef<L.Map | null>(null);
 
     // Function to select a new random address for the next round
     function getNewAddress() {
@@ -205,6 +207,12 @@ const LocationGuessingGame: React.FC = () => {
         return null;
     };
 
+    const handleMapRecenter = () => {
+        if (mapRef.current) {
+            mapRef.current.setView(ZugCoordinates, 14);
+        }
+    };
+
     const toggleGameState = () => {
         if (!hasStarted) {
             getNewAddress();
@@ -214,6 +222,7 @@ const LocationGuessingGame: React.FC = () => {
             setIsGuessPlaced(false);
             setIsTimeUp(false);
             setTimer(10);
+            handleMapRecenter();
         }
     };
 
@@ -262,9 +271,10 @@ const LocationGuessingGame: React.FC = () => {
                                 <div className="h-72 sm:h-96 w-full rounded-lg shadow-md mt-4 overflow-hidden">
                                     <MapContainer
                                         center={ZugCoordinates}
-                                        zoom={15}
+                                        zoom={14}
                                         className="h-full w-full"
                                         style={{ zIndex: 0 }}
+                                        ref={mapRef}
                                     >
                                         <TileLayer
                                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -292,6 +302,7 @@ const LocationGuessingGame: React.FC = () => {
                                                 weight={3}
                                             />
                                         )}
+                                        {/* Move the map between the correct and guessed location */}
                                         {guess && distance !== null && (
                                             <FitBoundsHandler
                                                 guess={guess}
