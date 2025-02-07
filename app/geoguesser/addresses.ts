@@ -65,6 +65,10 @@ const addresses: Address[] = [
         coords: [47.182218, 8.518773],
     },
     {
+        name: 'Fadenstrasse 2',
+        coords: [47.16998048351244, 8.525408444514538],
+    },
+    {
         name: 'Feldstrasse 3',
         coords: [47.180148, 8.511766],
     },
@@ -101,8 +105,20 @@ const addresses: Address[] = [
         coords: [47.174923, 8.514046],
     },
     {
+        name: 'Guggitalring 7',
+        coords: [47.15633928916386, 8.518005828910777],
+    },
+    {
         name: 'Haldenstrasse 6',
         coords: [47.173939, 8.520551],
+    },
+    {
+        name: 'Hänibüel 18',
+        coords: [47.15795691928422, 8.517477129322696],
+    },
+    {
+        name: 'Hertistrasse 53',
+        coords: [47.179108996578776, 8.510267606938694],
     },
     {
         name: 'Hofstrasse 5',
@@ -117,12 +133,20 @@ const addresses: Address[] = [
         coords: [47.18068, 8.491948],
     },
     {
+        name: 'Im Rötel 15',
+        coords: [47.166657008334525, 8.526207918212156],
+    },
+    {
         name: 'Industriestrasse 16',
         coords: [47.17308, 8.518994],
     },
     {
         name: 'Kolinplatz 7',
         coords: [47.166223, 8.515877],
+    },
+    {
+        name: 'Knopfliweg 6',
+        coords: [47.165665264331324, 8.518220750760669],
     },
     {
         name: 'Löberenstrasse 12',
@@ -133,6 +157,10 @@ const addresses: Address[] = [
         coords: [47.177734, 8.522438],
     },
     {
+        name: 'Meisenbergstrasse 7',
+        coords: [47.15547764244161, 8.515436417575684],
+    },
+    {
         name: 'Metallstrasse 9',
         coords: [47.173605, 8.518287],
     },
@@ -141,12 +169,32 @@ const addresses: Address[] = [
         coords: [47.166956, 8.515678],
     },
     {
+        name: 'Nelkenweg 7',
+        coords: [47.17945717616154, 8.511418370119213],
+    },
+    {
+        name: 'Obere Roostmatt 7',
+        coords: [47.157573916956196, 8.515583492464923],
+    },
+    {
         name: 'Poststrasse 2',
         coords: [47.16785, 8.516653],
     },
     {
+        name: 'Rosenbergstrasse 30',
+        coords: [47.16583428238927, 8.522499245292083],
+    },
+    {
         name: 'Schanz 14',
         coords: [47.167087, 8.517361],
+    },
+    {
+        name: 'Schwertstrasse 33',
+        coords: [47.159781786409496, 8.519653024633037],
+    },
+    {
+        name: 'Sonnenstrasse 7',
+        coords: [47.17502925968761, 8.52123015217545],
     },
     {
         name: 'St.-Johannes-Strasse 22',
@@ -181,12 +229,16 @@ const addresses: Address[] = [
         coords: [47.167881, 8.526682],
     },
     {
-        name: 'Weststrasse 9',
-        coords: [47.176877, 8.508489],
+        name: 'Weinbergstrasse 45',
+        coords: [47.16565663869035, 8.524373642805747],
     },
     {
-        name: 'Zugerbergstrasse 10',
-        coords: [47.163909, 8.516126],
+        name: 'Widenstrasse 43',
+        coords: [47.143760719544595, 8.510571652972438],
+    },
+    {
+        name: 'Weststrasse 9',
+        coords: [47.176877, 8.508489],
     },
     {
         name: 'Zugerbergstrasse 30',
