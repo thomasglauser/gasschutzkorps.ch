@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import PDFWidget from './pdfwidget';
+import PDFContainer from './pdfcontainer';
 
 export const metadata: Metadata = {
     title: 'Gasschutzkorps.ch | Statuten',
@@ -21,7 +21,7 @@ const StatutenPage = () => {
                                 <h2 className="mb-8 text-3xl font-bold leading-tight text-white sm:text-4xl sm:leading-tight">
                                     Unsere Statuten
                                 </h2>
-                                <PDFWidget />
+                                <PDFContainer />
                             </div>
                         </div>
                     </div>
