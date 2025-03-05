@@ -21,19 +21,25 @@ const menuData: Menu[] = [
     },
     {
         id: 4,
+        title: 'Statuten',
+        path: '/statuten',
+        newTab: false,
+    },
+    {
+        id: 5,
         title: 'Geschichte',
         path: '/geschichte',
         newTab: false,
     },
     {
-        id: 5,
+        id: 6,
         title: 'Veteranen',
         path: '/veteranen',
         newTab: false,
     },
 
     {
-        id: 6,
+        id: 7,
         title: 'Kontakt',
         path: '/kontakt',
         newTab: false,
