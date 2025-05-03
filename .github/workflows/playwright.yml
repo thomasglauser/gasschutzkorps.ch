@@ -1,11 +1,12 @@
 name: Playwright Tests
+permissions:
+    contents: read
 
 on:
     push:
         branches: [main]
     pull_request:
         branches: [main]
-
 jobs:
     test:
         timeout-minutes: 60
