@@ -12,7 +12,7 @@
     "dependencies": {
         "@vercel/speed-insights": "^1.2.0",
         "@wojtekmaj/react-hooks": "^1.22.0",
-        "framer-motion": "^12.16.0",
+        "framer-motion": "^12.20.1",
         "next": "^15.3.4",
         "next-sitemap": "^4.2.3",
         "react": "^19.0.0",
