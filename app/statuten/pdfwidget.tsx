@@ -4,8 +4,8 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import { useResizeObserver } from '@wojtekmaj/react-hooks';
 import { useState, useCallback } from 'react';
 
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 import './pdfwidget.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -25,7 +25,7 @@ const maxWidth = 800;
 const resizeObserverOptions = {};
 
 const PDFWidget = () => {
-    const [file, setFile] = useState<PDFFile>('./pdf/statuten.pdf');
+    const [file] = useState<PDFFile>('./pdf/statuten.pdf');
     const [numPages, setNumPages] = useState<number>();
     const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
     const [containerWidth, setContainerWidth] = useState<number>();
